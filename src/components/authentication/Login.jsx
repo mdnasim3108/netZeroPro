@@ -1,11 +1,33 @@
-import { useState, useReducer } from "react";
+// import { useState, useReducer } from "react";
 import './login.css'
 import loginImg from '../../assets/loginCartoon.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import google from '../../assets/googleIcon.jpg'
-const login = () => {
+import twitter from "../../assets/twitter.png"
+
+import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+
+import { authentication } from '../../firebase-config'; 
+// import Dashboard from '../dashborad/Dashboard';
+
+const Login = () => {
+
+const provider = new GoogleAuthProvider();
+
+const signinWithGoogle = ()=>{
+  console.log("Event clicked");
+  signInWithPopup(authentication, provider)
+
+  .then((result)=>{  
+      console.log(result);
+  }) 
+  .catch((error)=>{
+      console.log(error);
+  })
+}
+
   return (
     <>
       <div className="authContainer">
@@ -13,12 +35,12 @@ const login = () => {
           <h2 className="text-3xl tracking-wide">NetzeroThink</h2>
           <div className="newUser">
             <span className="font-bold text-lg newUse mr-2">New User?</span>
-            <span><a href="#" className="font-bold" style={{fontSize:"1.3rem",textDecoration:"none",color:"rgb(146, 56, 231)"}}>Sign UP</a></span>
+            <span><a href="/#" className="font-bold" style={{fontSize:"1.3rem",textDecoration:"none",color:"rgb(146, 56, 231)"}}>Sign UP</a></span>
           </div>
         </div>
         <div className="loginContainer flex justify-between px-[7rem]">
             <div className="loginImg">
-                    <img src={loginImg}/>
+                    <img src={loginImg} alt="login_image"/>
             </div>
             <div className="loginForm pr-[3rem]">
                   <h1 className="text-4xl font-bold">Welcome Back!</h1>
@@ -39,7 +61,10 @@ const login = () => {
                   </form>
                   <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
                     <p className="text-lg" style={{color:"darkgray"}}>Login With</p>
-                    <img src={google} className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer"/>
+                    <img src={google} alt="google_image" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer " onClick={signinWithGoogle}/>
+                    <img src={twitter} alt="twitter" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" onClick={signinWithGoogle}/>
+                    <img src={google} alt="google_image" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" onClick={signinWithGoogle}/>
+
                   </div>
             </div>
         </div>
@@ -47,4 +72,4 @@ const login = () => {
     </>
   );
 };
-export default login;
+export default Login;
