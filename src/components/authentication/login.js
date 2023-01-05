@@ -20,7 +20,7 @@ const login = () => {
         <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
             placeholder="Enter Your Email"
-            className="pl-[4rem] py-5 block  border-2 border-black"
+            className="pl-[4rem] py-5 block  border-2 border-black my-[2rem]"
             style={{ paddingRight: "20rem", fontSize: "1.1rem" }}
           />
          <FontAwesomeIcon icon={faLock} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
