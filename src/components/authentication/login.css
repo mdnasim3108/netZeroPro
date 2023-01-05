@@ -38,7 +38,6 @@ img{
 }
 input:focus{
     outline: none;
-    border-color: blueviolet;
 }
 .sample{
     position:relative;

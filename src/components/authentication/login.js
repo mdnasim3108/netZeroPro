@@ -19,13 +19,12 @@ const Login = () => {
     const passStateHandler=(state,action)=>{
         switch(action.type){
             case "user_input":
-                return {pass:action.value,isValid:action.value>6}
+                return {pass:action.value,isValid:action.value.length>6}
             case "input_blur":
-                return {pass:state.pass,isValid:state.pass>6}
+                return {pass:state.pass,isValid:state.pass.length>6}
             default:
                 return {pass:"",isValid:true}
-        }
-        
+        }   
     }
     const [emailState,dispatchEmail]=useReducer(emailStateHandler,{email:"",isValid:true})
     const [passState,dispatchPass]=useReducer(passStateHandler,{pass:"",isValid:true})
@@ -57,8 +56,8 @@ const Login = () => {
             onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchEmail({type:"input_blur"})}
             placeholder="Enter Your Email"
-            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem]"
-            style={{ paddingRight: "20rem", fontSize: "1.1rem" }}
+            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible"
+            style={{ width:"36.5rem", fontSize: "1.1rem",border:emailIsValid?"2.6px solid green":"2px solid red" }}
           />
           {!emailIsValid && <p className="ml-4 text-red-500">Enter a valid email</p>}
          <FontAwesomeIcon icon={faLock} className="absolute ml-[2rem] mt-[3.5rem] text-lg"/>
@@ -67,7 +66,7 @@ const Login = () => {
             onBlur={()=>dispatchPass({type:"input_blur"})}
             placeholder="Enter Your Password"
             className="pl-[4rem] py-5 block border-2 border-black mt-[2rem]"
-            style={{ paddingRight: "20rem", fontSize: "1.1rem" }}
+            style={{ width:"36.5rem", fontSize: "1.1rem",border:passIsValid?"2.6px solid green":"2px solid red"  }}
           />
           {!passIsValid  && <p className="ml-4 text-red-500">Password must be atleast 6 characters</p>}
           <div className="logFormBottom mt-8 flex">
