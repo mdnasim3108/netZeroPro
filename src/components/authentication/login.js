@@ -36,7 +36,7 @@ const Login = () => {
     const formSubmitHandler=(e)=>{
         e.preventDefault()
         if(formIvsValid){
-            alert("form is valid")
+            console.log("form is valid")
         }
     }
   return (
