@@ -1,39 +1,14 @@
-// import { useState, useReducer } from "react";
+import { useState, useReducer } from "react";
 import './login.css'
 import loginImg from '../../assets/loginCartoon.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-
 import google from '../../assets/googleIcon.jpg'
-
-
-import {  signInWithPopup, GoogleAuthProvider, } from "firebase/auth"
-import { authentication } from '../../firebase-config'; 
-// import Dashboard from '../dashborad/Dashboard';
-
-
-const Login = () => {
-
-  const googleProvider = new GoogleAuthProvider();
-
-const signinWithGoogle = ()=>{
-  signInWithPopup(authentication, googleProvider)
-  .then((result)=>{  
-    const user = result.user;
-    console.log(user);
-      alert("Logged in successfully")
-  }) 
-
-  .catch((error)=>{
-      console.log(error.message);
-  })
-}
-
-
-
+const login = () => {
   return (
     <>
+    hello
       <div className="authContainer">
         <div className="top flex justify-between pt-[4.5rem] px-[10rem]">
           <h2 className="text-3xl tracking-wide">NetzeroThink</h2>
@@ -44,7 +19,7 @@ const signinWithGoogle = ()=>{
         </div>
         <div className="loginContainer flex justify-between px-[7rem]">
             <div className="loginImg">
-                    <img src={loginImg} alt="login_image"/>
+                    <img src={loginImg} alt =""/>
             </div>
             <div className="loginForm pr-[3rem]">
                   <h1 className="text-4xl font-bold">Welcome Back!</h1>
@@ -65,9 +40,7 @@ const signinWithGoogle = ()=>{
                   </form>
                   <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
                     <p className="text-lg" style={{color:"darkgray"}}>Login With</p>
-                    <img src={google} alt="google_image" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer " onClick={signinWithGoogle}/>
-                   
-
+                    <img src={google} className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" alt = ""/>
                   </div>
             </div>
         </div>
@@ -75,4 +48,4 @@ const signinWithGoogle = ()=>{
     </>
   );
 };
-export default Login;
+export default login;
