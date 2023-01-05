@@ -19,7 +19,6 @@ const Login = () => {
 
 const signinWithGoogle = ()=>{
   signInWithPopup(authentication, googleProvider)
-
   .then((result)=>{  
     const user = result.user;
     console.log(user);
