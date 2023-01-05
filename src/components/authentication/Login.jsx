@@ -4,29 +4,34 @@ import loginImg from '../../assets/loginCartoon.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+
 import google from '../../assets/googleIcon.jpg'
-import twitter from "../../assets/twitter.png"
 
-import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 
+import {  signInWithPopup, GoogleAuthProvider, } from "firebase/auth"
 import { authentication } from '../../firebase-config'; 
 // import Dashboard from '../dashborad/Dashboard';
 
+
 const Login = () => {
 
-const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
 
 const signinWithGoogle = ()=>{
-  console.log("Event clicked");
-  signInWithPopup(authentication, provider)
+  signInWithPopup(authentication, googleProvider)
 
   .then((result)=>{  
-      console.log(result);
+    const user = result.user;
+    console.log(user);
+      alert("Logged in successfully")
   }) 
+
   .catch((error)=>{
-      console.log(error);
+      console.log(error.message);
   })
 }
+
+
 
   return (
     <>
@@ -62,8 +67,7 @@ const signinWithGoogle = ()=>{
                   <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
                     <p className="text-lg" style={{color:"darkgray"}}>Login With</p>
                     <img src={google} alt="google_image" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer " onClick={signinWithGoogle}/>
-                    <img src={twitter} alt="twitter" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" onClick={signinWithGoogle}/>
-                    <img src={google} alt="google_image" className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" onClick={signinWithGoogle}/>
+                   
 
                   </div>
             </div>
