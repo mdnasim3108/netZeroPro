@@ -33,7 +33,7 @@ const Login = () => {
     useEffect(()=>{
             setFormIsValid(emailIsValid && passIsValid)
     },[emailIsValid,passIsValid])
-    const formSubmitHandler=(e)=>{
+    const formsubmitHandler=(e)=>{
         e.preventDefault()
         if(formIvsValid){
             console.log("form is valid")
@@ -49,7 +49,7 @@ const Login = () => {
         >
           Login to continue
         </h3>
-        <form onSubmit={formSubmitHandler}>
+        <form onSubmit={formsubmitHandler}>
         <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
             type="email"
