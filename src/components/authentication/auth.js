@@ -37,7 +37,7 @@ const Auth = () => {
         </div>
         <div className="pt-[3rem] flex justify-between px-[6rem] logCont">
           <div className="loginImg">
-            <img src={loginImg} className="logCartImg"/>
+            <img src={loginImg} className="logCartImg" alt="some"/>
           </div>
         {showLog?<Login/>:<SignUp/>}
         </div>
