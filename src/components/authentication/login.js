@@ -44,31 +44,35 @@ const Login = () => {
       <div className="loginForm pr-[3rem]">
         <h1 className="text-4xl font-bold">Welcome Back!</h1>
         <h3
-          className="text-xl mt-[1rem] font-semibold"
+          className="text-xl mt-[1rem] font-semibold mb-[3rem]"
           style={{ color: "darkgray" }}
         >
           Login to continue
         </h3>
-        <form onSubmit={formsubmitHandler}>
+        <form onSubmit={formsubmitHandler} autoComplete="off">
         <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
             type="email"
+            name="email"
             onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchEmail({type:"input_blur"})}
             placeholder="Enter Your Email"
             className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible"
             style={{ width:"36.5rem", fontSize: "1.1rem",border:emailIsValid?"2.6px solid green":"2px solid red" }}
+            autocomplete="new-password"
           />
-          {!emailIsValid && <p className="ml-4 text-red-500">Enter a valid email</p>}
+          <p className="ml-4 text-red-500" style={{visibility:emailIsValid?"hidden":"visible"}}>Enter a valid email</p>
          <FontAwesomeIcon icon={faLock} className="absolute ml-[2rem] mt-[3.5rem] text-lg"/>
           <input
+            type="password"
+            name="new-password"
             onChange={(e)=>dispatchPass({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchPass({type:"input_blur"})}
             placeholder="Enter Your Password"
             className="pl-[4rem] py-5 block border-2 border-black mt-[2rem]"
             style={{ width:"36.5rem", fontSize: "1.1rem",border:passIsValid?"2.6px solid green":"2px solid red"  }}
           />
-          {!passIsValid  && <p className="ml-4 text-red-500">Password must be atleast 6 characters</p>}
+          <p className="ml-4 text-red-500" style={{visibility:passIsValid?"hidden":"visible"}}>Password must be atleast 6 characters</p>
           <div className="logFormBottom mt-8 flex">
             <button className="loginButton font-bold text-xl text-white mr-[5rem]" type="submit">
               LOGIN
