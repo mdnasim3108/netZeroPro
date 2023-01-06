@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import google from "../../assets/googleIcon.jpg";
-
-
-
 const Login = () => {
     const [formIvsValid,setFormIsValid]=useState(false)
     const emailStateHandler=(state,action)=>{
@@ -39,11 +36,9 @@ const Login = () => {
     const formsubmitHandler=(e)=>{
         e.preventDefault()
         if(formIvsValid){
-            console.log("Form is valid")
+            console.log("form is valid")
         }
     }
-
-
   return (
     <Fragment>
       <div className="loginForm pr-[3rem]">

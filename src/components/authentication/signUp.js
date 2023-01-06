@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import "./login.css";
-// import { useState, useReducer } from "react";
+import { useState, useReducer } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faLock,faBuilding,faCheck } from "@fortawesome/free-solid-svg-icons";
 const signUp = () => {

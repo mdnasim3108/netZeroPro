@@ -20,7 +20,7 @@ const Auth = () => {
               }
               onClick={()=>setShowLog(true)}
             >
-             <Login/>
+              Login
             </span>
             <span
               className="font-bold cursor-pointer newUse"
@@ -31,17 +31,13 @@ const Auth = () => {
               }
               onClick={()=>setShowLog(false)}
             > 
-              <SignUp />
+              Sign UP
             </span>
           </div>
         </div>
         <div className="pt-[3rem] flex justify-between px-[6rem] logCont">
           <div className="loginImg">
-<<<<<<< HEAD
-            <img src={loginImg} alt="" />
-=======
             <img src={loginImg} className="logCartImg"/>
->>>>>>> aacb5cb1aab0be3e653ac07e2c43d68f6321e5fb
           </div>
         {showLog?<Login/>:<SignUp/>}
         </div>
