@@ -5,11 +5,26 @@ a,.newUse{
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
 }
-img{
+.logCartImg{
     width: 45rem;
     height: 35rem;
 }
-
+@media screen and (max-width:1445px){
+    .logCartImg{
+            width: 35rem;
+            height: 30rem;
+    }
+    .logCont{
+        padding: 2rem 2rem;
+    }
+}
+@media screen and (max-width:1250px){
+    .logCont{
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+    }
+}
 .loginButton{
     margin-left: 0.5rem;
     padding: 1.5rem 5rem;
