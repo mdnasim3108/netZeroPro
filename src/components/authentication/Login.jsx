@@ -1,14 +1,39 @@
-import { useState, useReducer } from "react";
+// import { useState, useReducer } from "react";
 import './login.css'
 import loginImg from '../../assets/loginCartoon.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import google from '../../assets/googleIcon.jpg'
-const login = () => {
+import firebase from "firebase"
+
+
+const Login = () => {
+ const  state = { isSignedIn: false }
+  // eslint-disable-next-line no-undef
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
+  }
+  // eslint-disable-next-line no-undef
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })
+      console.log("user", user)
+    })
+  }
   return (
     <>
-    hello
+    
       <div className="authContainer">
         <div className="top flex justify-between pt-[4.5rem] px-[10rem]">
           <h2 className="text-3xl tracking-wide">NetzeroThink</h2>
@@ -40,7 +65,7 @@ const login = () => {
                   </form>
                   <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
                     <p className="text-lg" style={{color:"darkgray"}}>Login With</p>
-                    <img src={google} className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" alt = ""/>
+                    <img src={google} className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer" alt = "" />
                   </div>
             </div>
         </div>
@@ -48,4 +73,4 @@ const login = () => {
     </>
   );
 };
-export default login;
+export default Login;

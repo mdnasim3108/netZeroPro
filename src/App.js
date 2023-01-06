@@ -1,17 +1,16 @@
 
-<<<<<<< HEAD
-import Login from "./components/authentication/Login";
-=======
-import Login from "./components/authentication/auth";
->>>>>>> d626aeed6780d5fcc14ba1f0b5c5162e4284b137
+
+
+import Auth from "./components/authentication/auth";
+import Login from "./components/authentication/login";
+//  d626aeed6780d5fcc14ba1f0b5c5162e4284b137
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // import { BrowserRouter as Router,Route } from "react-router-dom";
 function App() {
   return (
     
-       <Login/>
-       
+<Login/>       
    
   );
 }
