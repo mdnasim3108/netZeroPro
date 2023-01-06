@@ -2,7 +2,7 @@ import Login from "./login";
 import loginImg from "../../assets/loginCartoon.png";
 import SignUp from "./signUp";
 import { useState } from "react";
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+// import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 const Auth = () => {
   const [showLog, setShowLog] = useState(true);
   return (
