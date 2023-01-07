@@ -8,7 +8,7 @@ import Auth from "./components/authentication/auth";
 // import { BrowserRouter as Router,Route } from "react-router-dom";
 function App() {
   return (
-    
+   
 <Auth/>       
    
   );

@@ -49,7 +49,7 @@ const Login = () => {
         >
           Login to continue
         </h3>
-        <form onSubmit={formsubmitHandler} autoComplete="off">
+        <form onSubmit={formsubmitHandler} autoComplete="off" className="">
         <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
             type="email"
@@ -57,8 +57,8 @@ const Login = () => {
             onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchEmail({type:"input_blur"})}
             placeholder="Enter Your Email"
-            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible"
-            style={{ width:"36.5rem", fontSize: "1.1rem",border:emailIsValid?"2.6px solid green":"2px solid red" }}
+            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible logEmail w-[36.5rem]"
+            style={{ fontSize: "1.1rem",border:emailIsValid?"2.6px solid green":"2px solid red" }}
             autocomplete="new-password"
           />
           <p className="ml-4 text-red-500" style={{visibility:emailIsValid?"hidden":"visible"}}>Enter a valid email</p>
@@ -69,8 +69,8 @@ const Login = () => {
             onChange={(e)=>dispatchPass({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchPass({type:"input_blur"})}
             placeholder="Enter Your Password"
-            className="pl-[4rem] py-5 block border-2 border-black mt-[2rem]"
-            style={{ width:"36.5rem", fontSize: "1.1rem",border:passIsValid?"2.6px solid green":"2px solid red"  }}
+            className="pl-[4rem] py-5 block border-2 border-black mt-[2rem] logPass w-[36.5rem]"
+            style={{fontSize: "1.1rem",border:passIsValid?"2.6px solid green":"2px solid red"  }}
           />
           <p className="ml-4 text-red-500" style={{visibility:passIsValid?"hidden":"visible"}}>Password must be atleast 6 characters</p>
           <div className="logFormBottom mt-8 flex">
