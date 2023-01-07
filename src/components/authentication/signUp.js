@@ -1,5 +1,6 @@
 import { Fragment ,useState} from "react";
 import "./login.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faLock,faBuilding,faCheck } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
@@ -131,7 +132,7 @@ const signUp = () => {
               </button>
             </div>
         </form>
-        <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
+        {/* <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
           <p className="text-lg" style={{ color: "darkgray" }}>
             Login With
           </p>
@@ -139,7 +140,7 @@ const signUp = () => {
             src={google}
             className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer"
           />
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );
