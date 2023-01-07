@@ -48,7 +48,7 @@ const signUp = () => {
       })
     }
 
-    console.log(user.uid);
+      console.log(user.uid);
       const formDatacopy = {...formData};
       delete formDatacopy.password;
       delete formDatacopy.confirmPassword;

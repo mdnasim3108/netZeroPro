@@ -46,6 +46,7 @@ const Login = () => {
     useEffect(()=>{
             setFormIsValid(emailIsValid && passIsValid)
     },[emailIsValid,passIsValid])
+
     const formsubmitHandler= async(e)=>{
         e.preventDefault()
         if(formIvsValid){
@@ -58,7 +59,7 @@ const Login = () => {
               navigate("/das")
               console.log("Fuckooff")
             }
-        }
+          }
     }
 
     const [value,setValues] = useState("")
@@ -89,10 +90,12 @@ const Login = () => {
             
 
     const formChange = (e) =>{
+      // console.log(e);
         setFormData((previousState)=>({
+      
           ...previousState,[e.target.id] :e.target.value
         }))
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
 
   return (
