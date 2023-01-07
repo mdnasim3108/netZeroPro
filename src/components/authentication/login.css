@@ -20,10 +20,37 @@ a,.newUse{
 }
 @media screen and (max-width:1250px){
     .logCont{
-        flex-direction: column;
-        justify-content: center;
-        margin: auto;
+        flex-direction: column-reverse;
     }
+    .logCartImg{
+        width: 100%;
+        margin: 2rem auto;
+    }
+    .loginForm h1,.loginForm h3{
+        text-align: center;
+    }
+    .logFormBottom{
+        justify-content: center;
+    }
+    .loginForm{
+        padding-right: 0;
+    }
+    .logEmail,.logPass{
+        width: 100%;
+        max-width: 80rem;
+    }
+    .altLogin{
+        width: 100%;
+        justify-content: center;
+    }
+    .altLogin p{
+        margin-right: 2rem;
+    }
+    .top{
+        margin: 0;
+        padding: 2rem;
+    }
+    
 }
 .loginButton{
     margin-left: 0.5rem;
@@ -33,23 +60,27 @@ a,.newUse{
     border-radius: 40px;
     letter-spacing: 1.5px;
 }
-.fgPass{
-    position: relative;
-    top:1.3rem;
-}
-.userIcon{
-    position: relative;
-    left: 2rem;
-    top: 3.1rem;
-    font-size: 1.2rem;
-    width: 3px;
-}
-.passIcon{
-    position: relative;
-    left: 2rem;
-    top: 3.1rem;
-    font-size: 1.2rem;
-    width: 3px;
+@media screen and (max-width:450px){
+    .top{
+        padding: 1rem;
+    }
+    .top h2{
+        font-size: 1.3rem;
+    }
+    .top span{
+        font-size: 0.8rem;
+    }
+    .loginButton{
+        padding: 0.6rem 2rem;
+        margin-right: 0;
+    }
+    .fgPass{
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+    }
+    .logFormBottom{
+        justify-content: space-between;
+    }
 }
 input:focus{
     outline: none;

@@ -8,7 +8,7 @@ const Auth = () => {
   return (
     <>
       <div className="authContainer">
-        <div className="top flex justify-between pt-[1.5rem] pl-[10rem] lg:pr-[23rem]">
+        <div className="top flex justify-between pt-[2.9rem] pl-[10rem] pr-[23rem] mb-[5rem]">
           <h2 className="text-3xl tracking-wide">NetzeroThink</h2>
           <div className="newUser">
             <span
@@ -35,7 +35,7 @@ const Auth = () => {
             </span>
           </div>
         </div>
-        <div className="pt-[3rem] flex justify-between px-[6rem] logCont">
+        <div className="flex justify-between px-[6rem] logCont">
           <div className="loginImg">
             <img src={loginImg} className="logCartImg" alt =""/>
           </div>
