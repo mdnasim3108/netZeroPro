@@ -4,7 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import google from "../../assets/googleIcon.jpg";
+
+import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase-config";
+
+import { useNavigate, } from "react-router-dom";
+import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
+
+
+
 const Login = () => {
+
     const [formIvsValid,setFormIsValid]=useState(false)
     const emailStateHandler=(state,action)=>{
         switch(action.type){
@@ -16,6 +26,7 @@ const Login = () => {
                 return {email:"",isValid:true}
         }
     }
+
     const passStateHandler=(state,action)=>{
         switch(action.type){
             case "user_input":
@@ -26,19 +37,64 @@ const Login = () => {
                 return {pass:"",isValid:true}
         }   
     }
+
     const [emailState,dispatchEmail]=useReducer(emailStateHandler,{email:"",isValid:true})
     const [passState,dispatchPass]=useReducer(passStateHandler,{pass:"",isValid:true})
     const {isValid:emailIsValid}=emailState;
     const {isValid:passIsValid}=passState;
+
     useEffect(()=>{
             setFormIsValid(emailIsValid && passIsValid)
     },[emailIsValid,passIsValid])
-    const formsubmitHandler=(e)=>{
+    const formsubmitHandler= async(e)=>{
         e.preventDefault()
         if(formIvsValid){
             console.log("form is valid")
+            const auth = getAuth()
+
+            const userCredentials = await signInWithEmailAndPassword(auth,email,password)
+            
+            if (userCredentials.user) {
+              navigate("/das")
+              console.log("Fuckooff")
+            }
         }
     }
+
+    const [value,setValues] = useState("")
+    const navigate = useNavigate();
+    const googleLogin = () =>{
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth,provider)
+                   .then((result)=>{
+                        console.log(result.user.photoURL);
+                        setValues(result.user.email)
+                        localStorage.setItem("email",result.user.email)  
+                        navigate("/das");     
+                   })
+        }
+ 
+        useEffect (() =>{
+          setValues(localStorage.getItem("email"))
+        
+        }, [])
+
+
+    const [formData,setFormData] = useState({
+      email:'',
+      password:'',
+    })
+
+    const {email,password} = formData;
+            
+
+    const formChange = (e) =>{
+        setFormData((previousState)=>({
+          ...previousState,[e.target.id] :e.target.value
+        }))
+        console.log(e.target.value);
+    }
+
   return (
     <Fragment>
       <div className="loginForm pr-[3rem]">
@@ -52,9 +108,12 @@ const Login = () => {
         <form onSubmit={formsubmitHandler} autoComplete="off" className="">
         <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
+          id="email"
             type="email"
             name="email"
-            onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
+            value={email}
+            onChange = {formChange}
+            // onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchEmail({type:"input_blur"})}
             placeholder="Enter Your Email"
             className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible logEmail w-[36.5rem]"
@@ -64,9 +123,12 @@ const Login = () => {
           <p className="ml-4 text-red-500" style={{visibility:emailIsValid?"hidden":"visible"}}>Enter a valid email</p>
          <FontAwesomeIcon icon={faLock} className="absolute ml-[2rem] mt-[3.5rem] text-lg"/>
           <input
+          id="password"
             type="password"
             name="new-password"
-            onChange={(e)=>dispatchPass({type:"user_input",value:e.target.value})}
+            value={password}
+            onChange = {formChange}
+            // onChange={(e)=>dispatchPass({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchPass({type:"input_blur"})}
             placeholder="Enter Your Password"
             className="pl-[4rem] py-5 block border-2 border-black mt-[2rem] logPass w-[36.5rem]"
@@ -84,11 +146,13 @@ const Login = () => {
           <p className="text-lg" style={{ color: "darkgray" }}>
             Login With
           </p>
-          <img
+       <img
             src={google}
             className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer"
             alt="google"
+            onClick={googleLogin}
           />
+        
         </div>
       </div>
     </Fragment>

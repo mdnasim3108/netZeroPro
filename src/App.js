@@ -2,14 +2,22 @@
 
 
 import Auth from "./components/authentication/auth";
-//  d626aeed6780d5fcc14ba1f0b5c5162e4284b137
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// import { BrowserRouter as Router,Route } from "react-router-dom";
-function App() {
+import { BrowserRouter as Router ,Routes,Route } from "react-router-dom";
+import Dashboard from "./components/dashborad/Dashboard";
+
+const  App =  ()=>{
   return (
-   
-<Auth/>       
+    
+      <div>
+        <Router>
+            <Routes>
+            <Route path="/" element={<Auth/>} />
+            <Route path="/das" element={<Dashboard/>} />  
+            {/* <Route path="/" element={<Auth/>} /> */}
+
+            </Routes>
+        </Router>
+      </div>
    
   );
 }
