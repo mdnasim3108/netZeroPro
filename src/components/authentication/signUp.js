@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faLock,faBuilding,faCheck } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, createUserWithEmailAndPassword , updateProfile ,sendEmailVerification  } from "firebase/auth";
 import {db} from "../../firebase-config"
-import { doc, setDoc , serverTimestamp } from "firebase/firestore"; 
+import { doc, setDoc  } from "firebase/firestore"; 
 
 const signUp = () => {
  

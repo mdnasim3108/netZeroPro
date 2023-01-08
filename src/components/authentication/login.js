@@ -63,6 +63,8 @@ const Login = () => {
     }
 
     const [value,setValues] = useState("")
+    console.log(value)
+    
     const navigate = useNavigate();
     const googleLogin = () =>{
         const provider = new GoogleAuthProvider();
