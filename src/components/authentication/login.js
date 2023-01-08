@@ -91,6 +91,7 @@ const Login = () => {
 
     const formChange = (e) =>{
       // console.log(e);
+      
         setFormData((previousState)=>({
       
           ...previousState,[e.target.id] :e.target.value

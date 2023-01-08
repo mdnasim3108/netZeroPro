@@ -3,7 +3,7 @@ import "./login.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faLock,faBuilding,faCheck } from "@fortawesome/free-solid-svg-icons";
-import { getAuth, createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword , updateProfile ,sendEmailVerification  } from "firebase/auth";
 import {db} from "../../firebase-config"
 import { doc, setDoc , serverTimestamp } from "firebase/firestore"; 
 
@@ -31,24 +31,25 @@ const signUp = () => {
  
  const  onSubmit = async(e) =>{
   e.preventDefault();
-  console.log("inside onSubmit");
-
   try {
     
     const auth = getAuth();
-
     const userCredentials = await createUserWithEmailAndPassword(auth,email,password);
     const user = userCredentials.user;
-    console.log(user);
-
+    sendEmailVerification(auth.currentUser)
+    .then(() => {
+      console.log ("Email sent Successfully")
+    });
+    
     if (user){
       updateProfile(auth.currentUser,{
         displayName: user.displayName,
         photoURL: user.photoURL,
       })
+
     }
 
-      console.log(user.uid);
+      
       const formDatacopy = {...formData};
       delete formDatacopy.password;
       delete formDatacopy.confirmPassword;
