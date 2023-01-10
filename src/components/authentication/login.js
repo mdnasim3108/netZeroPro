@@ -4,13 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import google from "../../assets/googleIcon.jpg";
-
-import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
-import { auth } from "../../firebase-config";
-
 import { useNavigate, } from "react-router-dom";
-import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
 
+import { getAuth,GoogleAuthProvider,signInWithPopup,signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase-config";
 
 
 const Login = () => {
@@ -57,7 +54,7 @@ const Login = () => {
             
             if (userCredentials.user) {
               navigate("/das")
-              console.log("Fuckooff")
+            
             }
           }
     }

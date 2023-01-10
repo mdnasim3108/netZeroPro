@@ -7,7 +7,8 @@ import { getAuth, createUserWithEmailAndPassword , updateProfile ,sendEmailVerif
 import {db} from "../../firebase-config"
 import { doc, setDoc  } from "firebase/firestore"; 
 
-const signUp = () => {
+const signUp = () => 
+{
  
  
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -32,7 +33,6 @@ const signUp = () => {
  const  onSubmit = async(e) =>{
   e.preventDefault();
   try {
-    
     const auth = getAuth();
     const userCredentials = await createUserWithEmailAndPassword(auth,email,password);
     const user = userCredentials.user;
@@ -46,23 +46,18 @@ const signUp = () => {
         displayName: user.displayName,
         photoURL: user.photoURL,
       })
-
     }
-
-      
       const formDatacopy = {...formData};
       delete formDatacopy.password;
       delete formDatacopy.confirmPassword;
       console.log("Details updated ");
       await setDoc(doc(db,'users',user.uid),formDatacopy);
-
-  } catch (error) {
+  } catch (error) 
+  {
     console.log(error);
   }
 
  }
-
-
 
   return (
     <Fragment>
@@ -144,6 +139,7 @@ const signUp = () => {
         </div> */}
       </div>
     </Fragment>
+
   );
 };
 export default signUp;
