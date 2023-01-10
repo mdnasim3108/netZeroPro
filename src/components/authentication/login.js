@@ -3,16 +3,11 @@ import "./login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import google from "../../assets/googleIcon.jpg";
-
+import google from "../../assets/googleSignin.jpg";
 import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase-config";
-
 import { useNavigate, } from "react-router-dom";
 import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
-
-
-
 const Login = () => {
 
     const [formIvsValid,setFormIsValid]=useState(false)
@@ -116,7 +111,7 @@ const Login = () => {
             // onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchEmail({type:"input_blur"})}
             placeholder="Enter Your Email"
-            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible logEmail w-[36.5rem]"
+            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible authip w-[36.5rem]"
             style={{ fontSize: "1.1rem",border:emailIsValid?"2.6px solid green":"2px solid red" }}
             autocomplete="new-password"
           />
@@ -131,7 +126,7 @@ const Login = () => {
             // onChange={(e)=>dispatchPass({type:"user_input",value:e.target.value})}
             onBlur={()=>dispatchPass({type:"input_blur"})}
             placeholder="Enter Your Password"
-            className="pl-[4rem] py-5 block border-2 border-black mt-[2rem] logPass w-[36.5rem]"
+            className="pl-[4rem] py-5 block border-2 border-black mt-[2rem] authip w-[36.5rem]"
             style={{fontSize: "1.1rem",border:passIsValid?"2.6px solid green":"2px solid red"  }}
           />
           <p className="ml-4 text-red-500" style={{visibility:passIsValid?"hidden":"visible"}}>Password must be atleast 6 characters</p>
@@ -139,16 +134,16 @@ const Login = () => {
             <button className="loginButton font-bold text-xl text-white mr-[5rem]" type="submit">
               LOGIN
             </button>
-            <p className="fgPass text-lg">Forgot password?</p>
+            <p className="fgPass text-lg mt-[1.6rem]">Forgot password?</p>
           </div>
         </form>
-        <div className="altLogin flex mt-[4rem] justify-between w-[10rem]">
-          <p className="text-lg" style={{ color: "darkgray" }}>
+        <div className="altLogin flex mt-[4rem] justify-between w-[20rem]">
+          {/* <p className="text-lg" style={{ color: "darkgray" }}>
             Login With
-          </p>
+          </p> */}
        <img
             src={google}
-            className="w-[3rem] h-[3rem] relative bottom-2.5 cursor-pointer"
+            className="w-[15rem] h-[4rem] relative bottom-2.5 cursor-pointer"
             alt="google"
             onClick={googleLogin}
           />
