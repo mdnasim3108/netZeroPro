@@ -46,7 +46,6 @@ const signUp = () => {
         displayName: user.displayName,
         photoURL: user.photoURL,
       })
-
     }
 
       
