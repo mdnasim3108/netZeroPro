@@ -119,7 +119,7 @@ const signUp = () => {
             /> */}
             <select
               id="countries"
-              class="mb-[1rem] authip border-2 border-black text-gray-500 text-sm  focus:ring-blue-500 focus:border-blue-500 py-5 pl-[4rem] dark:bg-gray-700 dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
+              class="mb-[1rem] authip border-2 border-black text-gray-500 text-sm  focus:ring-blue-500 focus:border-blue-500 py-5 pl-[4rem] dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
               style={{ fontSize: "1.1rem" }}
             >
               <option selected>Company Name</option>
@@ -199,3 +199,6 @@ const signUp = () => {
   );
 };
 export default signUp;
+
+// company name 
+// phone number

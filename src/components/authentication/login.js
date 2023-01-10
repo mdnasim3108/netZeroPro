@@ -8,6 +8,9 @@ import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useNavigate, } from "react-router-dom";
 import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
+import {  toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
 
     const [formIvsValid,setFormIsValid]=useState(false)
@@ -43,7 +46,7 @@ const Login = () => {
     },[emailIsValid,passIsValid])
 
     const [value,setValues] = useState("")
-    console.log(value)
+    // console.log(value)
     
     const navigate = useNavigate();
     const googleLogin = () =>{
@@ -75,6 +78,22 @@ const Login = () => {
 
         
     }
+    const toastSuccess = ()=>{
+      console.log("Hello");
+        toast.success("Successfully Logged In !",{
+          position:"top-right",
+          autoClose:5000,
+          hideProgressBar:false,
+          closeOnClick:true,
+          pauseOnHover:true,
+          draggable:false,
+          progress: undefined,
+          theme:"light"
+          });
+    
+        
+
+    }
     const formsubmitHandler= async(e)=>{
       e.preventDefault()
       // if(formIvsValid){
@@ -82,6 +101,7 @@ const Login = () => {
           const auth = getAuth()
           const userCredentials = await signInWithEmailAndPassword(auth,email,password)
           if (userCredentials.user) {
+            toastSuccess()
             navigate("/das")
           }
         // }
@@ -98,9 +118,9 @@ const Login = () => {
           Login to continue
         </h3>
         <form onSubmit={formsubmitHandler} autoComplete="off" className="">
-        <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
+         <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
-          id="email"
+            id="email"
             type="email"
             name="email"
             value={email}
@@ -115,7 +135,7 @@ const Login = () => {
           <p className="ml-4 text-red-500" style={{visibility:emailIsValid?"hidden":"visible"}}>Enter a valid email</p>
          <FontAwesomeIcon icon={faLock} className="absolute ml-[2rem] mt-[3.5rem] text-lg"/>
           <input
-          id="password"
+            id="password"
             type="password"
             name="new-password"
             value={password}
@@ -133,6 +153,7 @@ const Login = () => {
             </button>
             <p className="fgPass text-lg mt-[1.6rem]">Forgot password?</p>
           </div>
+          
         </form>
         <div className="altLogin flex mt-[4rem] justify-between w-[20rem]">
           {/* <p className="text-lg" style={{ color: "darkgray" }}>
