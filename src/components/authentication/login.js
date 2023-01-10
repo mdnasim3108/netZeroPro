@@ -42,21 +42,6 @@ const Login = () => {
             setFormIsValid(emailIsValid && passIsValid)
     },[emailIsValid,passIsValid])
 
-    const formsubmitHandler= async(e)=>{
-        e.preventDefault()
-        if(formIvsValid){
-            console.log("form is valid")
-            const auth = getAuth()
-
-            const userCredentials = await signInWithEmailAndPassword(auth,email,password)
-            
-            if (userCredentials.user) {
-              navigate("/das")
-            
-            }
-          }
-    }
-
     const [value,setValues] = useState("")
     console.log(value)
     
@@ -76,25 +61,31 @@ const Login = () => {
           setValues(localStorage.getItem("email"))
         
         }, [])
-
-
+            
     const [formData,setFormData] = useState({
       email:'',
       password:'',
     })
-
+    
     const {email,password} = formData;
-            
-
-    const formChange = (e) =>{
-      // console.log(e);
-      
+    const formChange = (e) =>{ 
         setFormData((previousState)=>({
-      
           ...previousState,[e.target.id] :e.target.value
         }))
-        // console.log(e.target.value);
+
+        
     }
+    const formsubmitHandler= async(e)=>{
+      e.preventDefault()
+      // if(formIvsValid){
+          console.log("form is valid")
+          const auth = getAuth()
+          const userCredentials = await signInWithEmailAndPassword(auth,email,password)
+          if (userCredentials.user) {
+            navigate("/das")
+          }
+        // }
+  }
 
   return (
     <Fragment>
