@@ -33,6 +33,7 @@ const signUp = () =>
  const  onSubmit = async(e) =>{
   e.preventDefault();
   try {
+    
     const auth = getAuth();
     const userCredentials = await createUserWithEmailAndPassword(auth,email,password);
     const user = userCredentials.user;
@@ -46,16 +47,19 @@ const signUp = () =>
         displayName: user.displayName,
         photoURL: user.photoURL,
       })
+
     }
+
+      
       const formDatacopy = {...formData};
       delete formDatacopy.password;
       delete formDatacopy.confirmPassword;
       console.log("Details updated ");
       await setDoc(doc(db,'users',user.uid),formDatacopy);
-  } catch (error) 
-  {
+
+  } catch (error) {
     console.log(error);
-  }
+    }
 
  }
 

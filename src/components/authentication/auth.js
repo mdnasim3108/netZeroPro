@@ -2,6 +2,7 @@ import Login from "./login";
 import loginImg from "../../assets/loginCartoon.png";
 import SignUp from "./signUp";
 import { useState } from "react";
+import Logo from "../../assets/Netzero.jpg";
 // import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 const Auth = () => {
   const [showLog, setShowLog] = useState(true);
@@ -9,7 +10,8 @@ const Auth = () => {
     <>
       <div className="authContainer">
         <div className="top flex justify-between pt-[2.9rem] pl-[10rem] pr-[23rem] mb-[5rem]">
-          <h2 className="text-3xl tracking-wide">NetzeroThink</h2>
+        <img src={Logo} className="w-[13rem] compLog"/>
+          {/* <h2 className="text-3xl tracking-wide">NetzeroThink</h2> */}
           <div className="newUser">
             <span
               className="font-bold text-lg newUse mr-2 cursor-pointer"
