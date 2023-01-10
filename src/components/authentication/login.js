@@ -52,7 +52,7 @@ const Login = () => {
             
             if (userCredentials.user) {
               navigate("/das")
-              console.log("Fuckooff")
+            
             }
           }
     }
