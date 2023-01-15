@@ -90,7 +90,7 @@ const SignUp = () => {
             placeholder="First Name"
             name="FirstName"
             value={firstName}
-            className="pl-[4rem] py-5 inline  mb-[1rem] mr-[0.4rem] border-2 border-green-600 authip w-[20.5rem] "
+            className="pl-[4rem] py-5 inline  mb-[1rem] mr-[0.4rem] border-2  border-violet-700 focus:border-green-500 authip w-[20.5rem] "
             style={{ fontSize: "1.1rem" }}
             onChange={formChange}
             required
@@ -100,7 +100,7 @@ const SignUp = () => {
             placeholder="Last Name"
             name="LastName"
             value={lastName}
-            className="pl-[4rem] py-5 inline  border-2 border-green-600 mb-[1rem] authip w-[20.5rem]"
+            className="pl-[4rem] py-5 inline  border-2  border-violet-700 focus:border-green-500 mb-[1rem] authip w-[20.5rem]"
             style={{ fontSize: "1.1rem" }}
             onChange={formChange}
             required
@@ -115,14 +115,14 @@ const SignUp = () => {
               value={companyCode}
               name="CompanyCode"
               placeholder="Company Code"
-              className="pl-[4rem] py-5 inline mr-[0.4rem]  border-2 border-green-600 mb-[1rem] authip w-[20.5rem]"
+              className="pl-[4rem] py-5 inline mr-[0.4rem]  border-2  border-violet-700 focus:border-green-500 mb-[1rem] authip w-[20.5rem]"
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
               required
             />
             <select
               id="countries"
-              class="mb-[1rem] authip border-2 border-green-600 text-gray-500 text-sm  focus:ring-blue-500 focus:border-blue-500 py-5 pl-[4rem] dark:bg-gray-700 dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
+              class="mb-[1rem] authip border-2  border-violet-700 focus:border-green-500 text-gray-500 text-sm  focus:ring-blue-500  py-5 pl-[4rem] dark:bg-gray-700 dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
             >
@@ -150,7 +150,7 @@ const SignUp = () => {
               value={email}
               name="Email"
               placeholder="Enter Your Email"
-              className="pl-[4rem] py-5 block border-2 border-green-600 mb-[1rem] authip w-[41.4rem]"
+              className="pl-[4rem] py-5 block border-2  border-violet-700 focus:border-green-500 mb-[1rem] authip w-[41.4rem]"
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
               required
@@ -179,7 +179,7 @@ const SignUp = () => {
               value={password}
               minLength="6"
               placeholder="Enter Your Password"
-              className="pl-[4rem] py-5 block border-2 border-green-600 mb-[1rem] authip w-[41.4rem]"
+              className="pl-[4rem] py-5 block border-2  border-violet-700 focus:border-green-500 mb-[1rem] authip w-[41.4rem]"
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
               required
@@ -196,7 +196,7 @@ const SignUp = () => {
               id="confirmPassword"
               value={confirmPassword}
               placeholder="Confirm Password"
-              className="pl-[4rem] py-5 block border-2 border-green-600 authip w-[41.4rem]"
+              className="pl-[4rem] py-5 block border-2  border-violet-700 focus:border-green-500 authip w-[41.4rem]"
               style={{
                 fontSize: "1.1rem",
                 border: isEqual ? "" : "2px solid red",

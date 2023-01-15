@@ -3,13 +3,30 @@ import "./login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import google from "../../assets/googleSignin.jpg";
+import google from "../../assets/googleIcon.jpg";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import googleIcon from "../../assets/googleIcon.jpg"
+import { useNavigate, } from "react-router-dom";
+import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
+import {  toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
+  
+  const toastSuccess = ()=>{
+    console.log("Hello");
+      toast.success("Successfully Logged In !",{
+        position:"top-right",
+        autoClose:5000,
+        hideProgressBar:false,
+        closeOnClick:true,
+        pauseOnHover:true,
+        draggable:false,
+        progress: undefined,
+        theme:"light"
+        });
+  }
+  
   const [formIvsValid, setFormIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passIsValid, setPassIsValid] = useState(true);
@@ -26,6 +43,7 @@ const Login = () => {
       );
 
       if (userCredentials.user) {
+        toastSuccess()
         navigate("/das");
       }
     }
@@ -97,10 +115,9 @@ const Login = () => {
             // onChange={(e)=>dispatchEmail({type:"user_input",value:e.target.value})}
             // onBlur={() => dispatchEmail({ type: "input_blur" })}
             placeholder="Enter Your Email"
-            className="pl-[4rem] py-5 block  border-2 border-black mt-[2rem] overflow-visible authip w-[36.5rem]"
+            className={`pl-[4rem] py-5 block  border-2  mt-[2rem] overflow-visible authip w-[36.5rem] border-violet-700 focus:border-green-500 ${emailIsValid?"":"focus:border-red-500"}`}
             style={{
               fontSize: "1.1rem",
-              border: emailIsValid ? "2.6px solid green" : "2px solid red",
             }}
             autocomplete="new-password"
           />
@@ -123,10 +140,9 @@ const Login = () => {
             // onChange={(e)=>dispatchPass({type:"user_input",value:e.target.value})}
             // onBlur={() => dispatchPass({ type: "input_blur" })}
             placeholder="Enter Your Password"
-            className="pl-[4rem] py-5 block border-2 border-black mt-[2rem] authip w-[36.5rem]"
+            className={`pl-[4rem] py-5 block border-2  border-violet-700 focus:border-green-500 mt-[2rem] authip w-[36.5rem] ${passIsValid?"":"focus:border-red-500"}`}
             style={{
               fontSize: "1.1rem",
-              border: passIsValid ? "2.6px solid green" : "2px solid red",
             }}
           />
           <p
@@ -144,11 +160,12 @@ const Login = () => {
             </button>
             <p className="fgPass text-lg mt-[1.6rem]">Forgot password?</p>
           </div>
+          
         </form>
         <div className="altLogin mt-[4rem] w-[35rem] flex">
         
           <div className="w-[17rem] h-[4rem] bg-blue-500 cursor-pointer relative bottom-2.5 flex py-[1rem] pr-[1rem] pl-[1rem] rounded" onClick={googleLogin}>
-              <img src={googleIcon} className="w-[2rem] h-[2rem]"/>
+              <img src={google} className="w-[2rem] h-[2rem]"/>
               <p className="text-white text-lg ml-[1rem]">Sign in with google</p>
           </div>
         </div>

@@ -113,8 +113,14 @@ input:focus{
     animation: authAnim 500ms;
 }
 .PhoneInput{
-    border: 1.8px solid green;
+    border: 1.8px solid blueviolet;
     padding: 1.5rem 0 1.5rem 1.7rem;
     margin-bottom: 1rem;
     font-size: 1.1rem;
+}
+.PhoneInput--focus{
+    border: 1.8px solid green;
+}
+input{
+    transition: border-color 100ms ease-in-out;
 }
