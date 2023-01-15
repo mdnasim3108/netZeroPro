@@ -9,7 +9,7 @@ const Auth = () => {
   return (
     <>
       <div className="authContainer">
-        <div className="top flex justify-between pt-[2.9rem] pl-[10rem] pr-[23rem] mb-[5rem]">
+        <div className="top flex justify-between pt-[1.8rem] pl-[10rem] pr-[23rem] mb-[3rem]">
         <img src={Logo} className="w-[13rem] compLog"/>
           {/* <h2 className="text-3xl tracking-wide">NetzeroThink</h2> */}
           <div className="newUser">
@@ -37,7 +37,7 @@ const Auth = () => {
             </span>
           </div>
         </div>
-        <div className="flex justify-between px-[6rem] logCont">
+        <div className="flex justify-between px-[6rem] logCont ">
           <div className="loginImg">
             <img src={loginImg} className="logCartImg" alt =""/>
           </div>
