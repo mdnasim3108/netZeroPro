@@ -8,8 +8,9 @@ import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useNavigate, } from "react-router-dom";
 import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
-import {  toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const Login = () => {
 
@@ -78,22 +79,20 @@ const Login = () => {
 
         
     }
-    const toastSuccess = ()=>{
-      console.log("Hello");
-        toast.success("Successfully Logged In !",{
-          position:"top-right",
-          autoClose:5000,
-          hideProgressBar:false,
-          closeOnClick:true,
-          pauseOnHover:true,
-          draggable:false,
-          progress: undefined,
-          theme:"light"
-          });
-    
-        
-
-    }
+    const toastifySuccess = () => {
+      console.log("Toast function");
+      toast.success("Successfully LogedIn !", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      console.log("Toast function");
+    };
     const formsubmitHandler= async(e)=>{
       e.preventDefault()
       // if(formIvsValid){
@@ -101,7 +100,7 @@ const Login = () => {
           const auth = getAuth()
           const userCredentials = await signInWithEmailAndPassword(auth,email,password)
           if (userCredentials.user) {
-            toastSuccess()
+            toastifySuccess();
             navigate("/das")
           }
         // }
@@ -117,6 +116,7 @@ const Login = () => {
         >
           Login to continue
         </h3>
+        <ToastContainer />
         <form onSubmit={formsubmitHandler} autoComplete="off" className="">
          <FontAwesomeIcon icon={faUser} className="absolute ml-[2rem] mt-[1.7rem] text-lg"/>
           <input
