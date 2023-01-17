@@ -1,4 +1,4 @@
-import { useState, useRouter, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect } from "react";
 import "./login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import google from "../../assets/googleIcon.jpg";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useNavigate } from "react-router-dom";
-// import { useRouter } from "react/router";
+
 import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -18,7 +18,7 @@ const Login = () => {
   const toastifySuccess = () => {
     toast.success("Successfully LogedIn !", {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 4000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -58,8 +58,11 @@ const Login = () => {
         email,
         password
       ).then(()=>{
+
         toastifySuccess()
-        navigate("/dashboard")
+        setTimeout(() => {
+          navigate("/dashboard")
+        }, 5000);
         
       }).catch((error)=>{
         console.log(error);
@@ -74,12 +77,15 @@ const Login = () => {
   const navigate = useNavigate();
   const googleLogin = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
       console.log(result.user.photoURL);
       setValues(result.user.email);
       localStorage.setItem("email", result.user.email);
-      navigate("/das");
-    });
+      navigate("/dashboard");
+    }).catch (()=>{
+        toastifyFailure();
+    })
   };
 
   useEffect(() => {
