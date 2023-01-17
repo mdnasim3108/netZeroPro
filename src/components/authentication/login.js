@@ -1,4 +1,4 @@
-import { useState, useReducer, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect } from "react";
 import "./login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -6,26 +6,40 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import google from "../../assets/googleIcon.jpg";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import { useNavigate, } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { getAuth , signInWithEmailAndPassword } from "firebase/auth";
 import {  toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  
-  const toastSuccess = ()=>{
-    console.log("Hello");
-      toast.success("Successfully Logged In !",{
-        position:"top-right",
-        autoClose:5000,
-        hideProgressBar:false,
-        closeOnClick:true,
-        pauseOnHover:true,
-        draggable:false,
-        progress: undefined,
-        theme:"light"
-        });
-  }
+
+  const toastifySuccess = () => {
+    toast.success("Successfully LogedIn !", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const toastifyFailure = () => {
+    console.log("Hello")
+    toast.error("Invail Email or Password !", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   
   const [formIvsValid, setFormIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(true);
@@ -40,12 +54,17 @@ const Login = () => {
         auth,
         email,
         password
-      );
+      ).then(()=>{
 
-      if (userCredentials.user) {
-        toastSuccess()
-        navigate("/das");
-      }
+        toastifySuccess()
+        setTimeout(() => {
+          navigate("/dashboard")
+        }, 5000);
+        
+      }).catch((error)=>{
+        console.log(error);
+        toastifyFailure();
+      })     
     }
   };
 
@@ -55,12 +74,15 @@ const Login = () => {
   const navigate = useNavigate();
   const googleLogin = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
       console.log(result.user.photoURL);
       setValues(result.user.email);
       localStorage.setItem("email", result.user.email);
-      navigate("/das");
-    });
+      navigate("/dashboard");
+    }).catch (()=>{
+        toastifyFailure();
+    })
   };
 
   useEffect(() => {
