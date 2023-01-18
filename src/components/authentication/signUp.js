@@ -16,8 +16,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { db } from "../../firebase-config";
-import { doc, setDoc } from "firebase/firestore";
-// import { Action } from "@remix-run/router";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { Action } from "@remix-run/router";
 
 const SignUp = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -47,7 +47,7 @@ const SignUp = () => {
   };
   useEffect(() => {
     setIsEqual(password === confirmPassword);
-  }, [confirmPassword, password]);
+  }, [confirmPassword]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -122,17 +122,17 @@ const SignUp = () => {
             />
             <select
               id="countries"
-              class="mb-[1rem] authip border-2  border-violet-700 focus:border-green-500 text-gray-500 text-sm  focus:ring-blue-500  py-5 pl-[4rem]  dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
+              class="mb-[1rem] authip border-2  border-violet-700 focus:border-green-500 text-gray-500 text-sm  focus:ring-blue-500  py-5 pl-[4rem] dark:bg-gray-700 dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
             >
-              <option selected>Your's Position</option>
+              <option selected>Company Name</option>
               <option value="US" className="">
-                Manager
+                United States
               </option>
-              <option value="CA">Employer</option>
-              <option value="FR">Entrepreneur</option>
-              <option value="DE">Others</option>
+              <option value="CA">Canada</option>
+              <option value="FR">France</option>
+              <option value="DE">Germany</option>
             </select>
           </div>
           <PhoneInput
