@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   const toastifyFailure = () => {
-    console.log("Hello")
+  
     toast.error("Invail Email or Password !", {
       position: "top-right",
       autoClose: 5000,
@@ -53,7 +53,7 @@ const Login = () => {
     if (formIvsValid) {
       const auth = getAuth();
 
-      const userCredentials = await signInWithEmailAndPassword(
+       await signInWithEmailAndPassword(
         auth,
         email,
         password
@@ -72,7 +72,7 @@ const Login = () => {
   };
 
   const [value, setValues] = useState("");
-
+  console.log(value)
 
   const navigate = useNavigate();
   const googleLogin = () => {
