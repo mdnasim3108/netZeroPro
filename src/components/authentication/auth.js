@@ -9,32 +9,15 @@ const Auth = () => {
   return (
     <>
       <div className="authContainer">
-        <div className="top flex justify-between pt-[1.8rem] pl-[10rem] pr-[23rem] mb-[3rem]">
+        <div className="top flex justify-between pt-[1.8rem] pl-[10rem] pr-[18rem] mb-[3rem]">
         <img src={Logo} className="w-[13rem] compLog"/>
           {/* <h2 className="text-3xl tracking-wide">NetzeroThink</h2> */}
-          <div className="newUser">
-            <span
-              className="font-bold text-lg newUse mr-2 cursor-pointer"
-              style={
-                showLog
-                  ? { fontSize: "1.3rem", color: "rgb(146, 56, 231)" }
-                  : {}
-              }
-              onClick={()=>setShowLog(true)}
-            >
-              Login
-            </span>
-            <span
-              className="font-bold cursor-pointer newUse"
-              style={
-                !showLog
-                  ? { fontSize: "1.3rem", color: "rgb(146, 56, 231)" }
-                  : {}
-              }
-              onClick={()=>setShowLog(false)}
-            > 
-              Sign UP
-            </span>
+          <div className="w-[18rem] h-[3rem] rounded-[30px] flex justify-between bg-violet-700 items-center px-[2px] relative">
+            <button className={`text-white font-bold rounded-[30px] h-[90%] w-[50%]`} onClick={()=>setShowLog(true)}>Login</button>
+            <button className={` text-white font-bold rounded-[30px] w-[50%] h-[90%]`} onClick={()=>setShowLog(false)}>SignUp </button>
+            <button
+             className={`bg-white transition-all ease-in-out duration-[400ms] text-violet-600 font-bold rounded-[30px] w-[50%] h-[90%] absolute ${!showLog?"translate-x-[96.5%]":""}`}
+             >{showLog?"Login":"SignUp"}</button>
           </div>
         </div>
         <div className="flex justify-between px-[6rem] logCont ">
