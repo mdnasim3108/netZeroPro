@@ -9,6 +9,7 @@ const Dashboard = () => {
     window.location.href = '/';
    
 }
+
 const user = auth.currentUser;
   return (
     <div>

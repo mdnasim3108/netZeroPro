@@ -16,13 +16,45 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { db } from "../../firebase-config";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { Action } from "@remix-run/router";
+import { doc, setDoc } from "firebase/firestore";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const SignUp = () => {
+
+  const toastifySuccess = () => {
+    toast.success("Successfully SignedIn !", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const toastifyFailure = () => {
+  
+    toast.error("Email already in use !", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [value, setValue] = useState("");
   const [showPassword,setShowPassword]=useState(false)
+
   const numberHandler = (e) => {
     setValue(e.target.value);
   };
@@ -31,12 +63,15 @@ const SignUp = () => {
     firstName: "",
     lastName: "",
     companyCode: "",
+    companyPosition:"",
+    // phoneNumber:value,
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const { firstName, lastName, companyCode, email, password, confirmPassword } =
+
+  const { firstName, lastName, companyCode,companyPosition ,email, password, confirmPassword } =
     formData;
 
   const formChange = (e) => {
@@ -45,13 +80,16 @@ const SignUp = () => {
       [e.target.id]: e.target.value,
     }));
   };
+
+
   useEffect(() => {
     setIsEqual(password === confirmPassword);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [confirmPassword]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("inside onSubmit");
+   
     try {
       const auth = getAuth();
 
@@ -71,13 +109,16 @@ const SignUp = () => {
       }
 
       console.log(user.uid);
-      const formDatacopy = { ...formData };
+      const formDatacopy = { ...formData ,phoneNumber:value};
+      console.log(formDatacopy)
       delete formDatacopy.password;
       delete formDatacopy.confirmPassword;
       console.log("Details updated ");
       await setDoc(doc(db, "users", user.uid), formDatacopy);
+      toastifySuccess();
     } catch (error) {
       console.log(error);
+      toastifyFailure();
     }
   };
 
@@ -121,21 +162,22 @@ const SignUp = () => {
               required
             />
             <select
-              id="countries"
-              class="mb-[1rem] authip border-2  border-violet-700 focus:border-green-500 text-gray-500 text-sm  focus:ring-blue-500  py-5 pl-[4rem] dark:bg-gray-700 dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
+              id="companyPosition"
+              value = {companyPosition}
+              class="mb-[1rem] authip border-2  border-violet-700 focus:border-green-500 text-gray-500 text-sm  focus:ring-blue-500  py-5 pl-[4rem]  dark:focus:ring-blue-500 dark:focus:border-blue-500 inline w-[20.5rem]"
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
             >
-              <option selected>Company Name</option>
-              <option value="US" className="">
-                United States
-              </option>
-              <option value="CA">Canada</option>
-              <option value="FR">France</option>
-              <option value="DE">Germany</option>
+              {/* <option selected>Position</option> */}
+              <option value="Owner">Owner</option>
+              <option value="Manager">Manager</option>
+              <option value="Employee">Employee</option>
+              <option value="Entrepreneur">Entrepreneur</option>
+              <option value="Others">Others</option>
             </select>
           </div>
           <PhoneInput
+           
             placeholder="Enter phone number"
             value={value}
             onChange={setValue}
@@ -219,6 +261,7 @@ const SignUp = () => {
               Sign Up
             </button>
           </div>
+          <ToastContainer/>
         </form>
       </div>
     </Fragment>

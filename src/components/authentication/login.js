@@ -72,7 +72,7 @@ const Login = () => {
   };
 
   const [value, setValues] = useState("");
-  // log
+  
 
   const navigate = useNavigate();
   const googleLogin = () => {
@@ -180,7 +180,7 @@ const Login = () => {
             >
               LOGIN
             </button>
-            <ToastContainer autoClose={8000}/>
+            <ToastContainer />
             <p className="fgPass text-lg mt-[1.6rem]">Forgot password?</p>
           </div>
           
