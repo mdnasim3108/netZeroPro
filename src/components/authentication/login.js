@@ -59,7 +59,7 @@ const Login = () => {
         password
       ).then(()=>{
 
-        toastifySuccess()
+        toastifySuccess()                                                                                           
         setTimeout(() => {
           navigate("/dashboard")
         }, 5000);
