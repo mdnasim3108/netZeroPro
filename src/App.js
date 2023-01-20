@@ -1,4 +1,5 @@
 import Auth from "./components/authentication/auth";
+import PricingTable from "./components/Pricing/PricingTable";
 import { BrowserRouter as Router ,Routes,Route } from "react-router-dom";
 import Dashboard from "./components/dashborad/Dashboard";
 const  App =  ()=>{
@@ -6,7 +7,7 @@ const  App =  ()=>{
       <div>
         <Router>
             <Routes>
-            <Route path="/" element={<Auth/>} />
+            <Route path="/" element={<PricingTable/>} />
             <Route path="/dashboard" element={<Dashboard/>} />  
             {/* <Route path="/" element={<Auth/>} /> */}
             </Routes>
