@@ -7,9 +7,10 @@ const  App =  ()=>{
       <div>
         <Router>
             <Routes>
-            <Route path="/" element={<PricingTable/>} />
+            <Route path="/" element={<Auth/>} />
+            <Route path="/payment" element={<PricingTable/>} />
             <Route path="/dashboard" element={<Dashboard/>} />  
-            {/* <Route path="/" element={<Auth/>} /> */}
+            
             </Routes>
         </Router>
       </div>
