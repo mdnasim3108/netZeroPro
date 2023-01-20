@@ -72,7 +72,7 @@ const Login = () => {
   };
 
   const [value, setValues] = useState("");
-  
+  // log
 
   const navigate = useNavigate();
   const googleLogin = () => {
