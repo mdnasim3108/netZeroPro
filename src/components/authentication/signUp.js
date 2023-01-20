@@ -13,6 +13,7 @@ import {
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
 import { db } from "../../firebase-config";
@@ -64,7 +65,6 @@ const SignUp = () => {
     lastName: "",
     companyCode: "",
     companyPosition:"",
-    // phoneNumber:value,
     email: "",
     password: "",
     confirmPassword: "",
@@ -81,7 +81,6 @@ const SignUp = () => {
     }));
   };
 
-
   useEffect(() => {
     setIsEqual(password === confirmPassword);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -92,7 +91,6 @@ const SignUp = () => {
    
     try {
       const auth = getAuth();
-
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -107,6 +105,7 @@ const SignUp = () => {
           photoURL: user.photoURL,
         });
       }
+      sendEmailVerification(auth.currentUser);
 
       console.log(user.uid);
       const formDatacopy = { ...formData ,phoneNumber:value};
