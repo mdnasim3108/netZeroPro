@@ -158,7 +158,7 @@ const SignUp = () => {
           displayName: user.displayName,
           photoURL: user.photoURL,
         });
-      }
+      } 
       console.log(user.uid);
       const formDatacopy = { ...formData ,phoneNumber:value};
       console.log(formDatacopy)
@@ -276,6 +276,7 @@ const getOtp =async (e) =>{
              onChange={(e)=>setOtp(e.target.value)} 
              />
             <button onClick={verifyOtp} className="w-[10.4rem]" style={{ backgroundColor: "black" , color: "white" ,fontSize: "20px", padding: "5px 10px",borderRadius: "5px",  margin: "10px 0px", cursor: "pointer"}}>Verify OTP</button>
+          
           </div>
           <div>
             <FontAwesomeIcon

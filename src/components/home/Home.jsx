@@ -1,7 +1,7 @@
 import React from 'react'
 import {getAuth} from 'firebase/auth'
 
-const Dashboard = () => {
+const Home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -32,4 +32,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Home;

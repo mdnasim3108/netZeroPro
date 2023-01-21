@@ -111,8 +111,8 @@ const Login = () => {
       ...previousState,
       [e.target.id]: e.target.value,
     }));
-    // console.log(e.target.value);
   };
+  
   useEffect(() => {
     setFormIsValid(emailIsValid && passIsValid);
   }, [emailIsValid, passIsValid]);
