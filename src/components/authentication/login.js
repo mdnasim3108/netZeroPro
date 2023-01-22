@@ -61,8 +61,8 @@ const Login = () => {
 
         toastifySuccess()                                                                                           
         setTimeout(() => {
-          navigate("/dashboard")
-        }, 5000);
+          navigate("/payment")
+        }, 3000);
         
       }).catch((error)=>{
         console.log(error);
@@ -82,7 +82,7 @@ const Login = () => {
       console.log(result.user.photoURL);
       setValues(result.user.email);
       localStorage.setItem("email", result.user.email);
-      navigate("/dashboard");
+      navigate("/payment");
     }).catch (()=>{
         toastifyFailure();
     })
@@ -111,8 +111,8 @@ const Login = () => {
       ...previousState,
       [e.target.id]: e.target.value,
     }));
-    // console.log(e.target.value);
   };
+  
   useEffect(() => {
     setFormIsValid(emailIsValid && passIsValid);
   }, [emailIsValid, passIsValid]);

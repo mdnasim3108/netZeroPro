@@ -7,14 +7,15 @@ import { AiFillEyeInvisible,AiFillEye } from "react-icons/ai";
 import {
   faUser,
   faLock,
-  faBuilding,
+  // faBuilding,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  sendEmailVerification,
   updateProfile,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
 } from "firebase/auth";
 import { db } from "../../firebase-config";
 import { doc, setDoc } from "firebase/firestore";
@@ -25,7 +26,32 @@ import "react-toastify/dist/ReactToastify.min.css";
 const SignUp = () => {
 
   const toastifySuccess = () => {
-    toast.success("Successfully SignedIn !", {
+    toast.success("Successfully SignedIn !!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const toastifyFailure = () => {
+    toast.error("Email already in use !!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const otpSuccess = () => {
+    toast.success("Phone Number Verified!!", {
       position: "top-right",
       autoClose: 4000,
       hideProgressBar: false,
@@ -37,9 +63,33 @@ const SignUp = () => {
     });
   };
 
-  const toastifyFailure = () => {
-  
-    toast.error("Email already in use !", {
+  const otpFailure = () => {
+    toast.error("Please Check The OTP!!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const phoneNumberSuccess = () => {
+    toast.success("OTP Sent Successfully!!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const phoneNumberError = () => {
+    toast.error("Enter correct Phone Number!!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -54,7 +104,10 @@ const SignUp = () => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [value, setValue] = useState("");
+  const [otp,setOtp] = useState("");
   const [showPassword,setShowPassword]=useState(false)
+  const [confirmObj,setConfirmObj] = useState("")
+
 
   const numberHandler = (e) => {
     setValue(e.target.value);
@@ -71,7 +124,7 @@ const SignUp = () => {
   });
 
 
-  const { firstName, lastName, companyCode,companyPosition ,email, password, confirmPassword } =
+  const { firstName, lastName ,email, password, confirmPassword } =
     formData;
 
   const formChange = (e) => {
@@ -86,11 +139,12 @@ const SignUp = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [confirmPassword]);
 
+  const auth = getAuth();
+  
   const onSubmit = async (e) => {
+    
     e.preventDefault();
-   
     try {
-      const auth = getAuth();
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -104,9 +158,7 @@ const SignUp = () => {
           displayName: user.displayName,
           photoURL: user.photoURL,
         });
-      }
-      sendEmailVerification(auth.currentUser);
-
+      } 
       console.log(user.uid);
       const formDatacopy = { ...formData ,phoneNumber:value};
       console.log(formDatacopy)
@@ -120,6 +172,36 @@ const SignUp = () => {
       toastifyFailure();
     }
   };
+
+function setUpRecaptcha(value) {
+  const recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth);
+  recaptchaVerifier.render();
+  return signInWithPhoneNumber(auth, value , recaptchaVerifier)
+}
+const getOtp =async (e) =>{
+    e.preventDefault()
+    if (value === ""  || value === undefined ) 
+   { phoneNumberError()}
+    try {
+      const response  =  await setUpRecaptcha(value)
+      setConfirmObj(response);
+      phoneNumberSuccess()
+    } catch (error) {
+      phoneNumberError()
+    }
+
+  }
+
+  const verifyOtp = async(e) =>{
+    e.preventDefault();
+    if (otp === '' || otp === null) {otpFailure()}
+    try {
+      await confirmObj.confirm(otp);
+      otpSuccess()
+    } catch (error) {
+     otpFailure()
+    }
+  }
 
   return (
     <Fragment>
@@ -145,7 +227,7 @@ const SignUp = () => {
             onChange={formChange}
             required
           />
-          <div>
+          {/* <div>
             <FontAwesomeIcon
               icon={faBuilding}
               className="absolute ml-[2rem] mt-[1.7rem] text-xl"
@@ -167,20 +249,35 @@ const SignUp = () => {
               style={{ fontSize: "1.1rem" }}
               onChange={formChange}
             >
-              {/* <option selected>Position</option> */}
+              <option selected>Designation</option>
               <option value="Owner">Owner</option>
               <option value="Manager">Manager</option>
               <option value="Employee">Employee</option>
               <option value="Entrepreneur">Entrepreneur</option>
               <option value="Others">Others</option>
             </select>
-          </div>
+          </div> */}
+
           <PhoneInput
-           
-            placeholder="Enter phone number"
-            value={value}
-            onChange={setValue}
-          />
+              defaultCountry="IN"
+              value={value}
+              onChange={setValue}
+              placeholder="Enter phone number"
+              className="w-[31.4rem]"
+            />
+             <button onClick={getOtp}    style={{ backgroundColor: "black" , color: "white" ,fontSize: "20px", padding: "10px 60px",borderRadius: "5px",  margin: "10px 0px", cursor: "pointer"}}>Get OTP</button>
+            <div id="recaptcha-container" />
+       
+          <div>
+            <input type="text"
+             className="pl-[4rem] py-5 block border-2  border-violet-700 focus:border-green-500 mb-[1rem] authip w-[31.4rem]"
+             style={{ fontSize: "1.1rem" }}
+             placeholder="Enter the OTP" 
+             onChange={(e)=>setOtp(e.target.value)} 
+             />
+            <button onClick={verifyOtp} className="w-[10.4rem]" style={{ backgroundColor: "black" , color: "white" ,fontSize: "20px", padding: "5px 10px",borderRadius: "5px",  margin: "10px 0px", cursor: "pointer"}}>Verify OTP</button>
+          
+          </div>
           <div>
             <FontAwesomeIcon
               icon={faUser}
@@ -253,9 +350,8 @@ const SignUp = () => {
             </p>
           </div>
           <div
-            className="logFormBottom mt-8 flex"
-            style={{ justifyContent: "center" }}
-          >
+            className="logFormBottom mt-2 flex"
+            style={{ justifyContent: "center" }}>
             <button className="loginButton font-bold text-xl text-white">
               Sign Up
             </button>
