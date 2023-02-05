@@ -53,8 +53,7 @@ const Login = () => {
     e.preventDefault();
     
     if (formIvsValid) {
-      // await axios.post("http://localhost:4000/createCustomer",{email})
-      // .then((response)=>console.log(response.data))
+      
       const auth = getAuth();
 
        await signInWithEmailAndPassword(
@@ -65,7 +64,8 @@ const Login = () => {
 
         toastifySuccess()                                                                                           
         setTimeout(() => {
-          navigate("/payment")
+          // navigate("/payment")
+          navigate("/home")
         }, 3000);
         setCookie("user", email, { path: "/",expires:tomorrow });
       }).catch((error)=>{
