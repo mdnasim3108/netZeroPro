@@ -4,6 +4,8 @@ import { BrowserRouter as Router ,Routes,Route } from "react-router-dom";
 // import Home from "./components/home/Home";
 import NavBar from "./components/navbar/NavBar";
 import SectionA from "./components/navbar/SectionA";
+import "./App.css";
+
 
 const  App =  ()=>{
   return (

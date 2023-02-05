@@ -43,7 +43,7 @@ export default function NavBar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                
                 >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2" onClick={handleClick}>Section A</span>
+                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={handleClick}>Section A</span>
                 </a>
               </li>
               <li className="nav-item">
