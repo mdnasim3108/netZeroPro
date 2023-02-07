@@ -1,26 +1,10 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 const SectionA = () => {
-  const [table, setTable] = useState([1, 2, 3]);
-  const row = table.map((el) => {
-    return (
-      <tr>
-        <td className="border-2  border-violet-700 w-[100px] text-center">
-          {el}
-        </td>
-        <td className="border-2  border-violet-700 focus:border-green-500">
-          <input className="pl-[0.5rem]  inline  mb-[1rem]    authip  " />
-        </td>
-        <td className="border-2  border-violet-700">
-          <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " />
-        </td>
-        <td className="border-2  border-violet-700">
-          <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " />
-        </td>
-      </tr>
-    );
-  });
 
+  // dynamic allocation of rows in table
+ 
+  const [table, setTable] = useState([1,2]);
   const [formData, setFormData] = useState({
     CIN: "",
     name: "",
@@ -35,18 +19,115 @@ const SectionA = () => {
     paidupCapital: "",
     personName: "",
     personEmail: "",
-    main1Activity: "",
-    business1Activity: "",
-    turn1over: "",
-  });
+    mainActivity_1:"",
+    businessActivity_1:"",
+    turnOverEntity_1:"",
+    product_1:"",
+    NICcode_1:"",
+    totalTurnover_1:"",
+    nationalPlants:"",
+    nationalOffice:"", 
+    nationalTotal:"",
+    internationalPlants:"",
+    internationalOffice:"", 
+    internationalTotal:"",
+    nationalNumbers:"",
+    internationalNumbers:"",
+    contributionExports:"",
+    briefCustomers:"",
 
+
+
+
+  });
   const sectionChange = (e) => {
     setFormData((previousState) => ({
       ...previousState,
       [e.target.id]: e.target.value,
     }));
-    console.log(e.target.value);
+
   };
+  const row = table.map((el) => {
+    return (
+      <tr>
+        <td className="border-2  border-violet-700 w-[100px] text-center">
+          {el}
+        </td>
+        <td className="border-2  border-violet-700 focus:border-green-500">
+          <input  
+              id={`mainActivity_${el}` }
+              className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+              name={`mainActivity_${el}`}
+              onChange={sectionChange}
+              required
+
+          />
+        </td>
+        <td className="border-2  border-violet-700">
+          <input 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  id={`businessActivity_${el}`}
+                  name={`businessActivity_${el}`}
+                  onChange={sectionChange}
+                  required
+
+          />
+        </td>
+        <td className="border-2  border-violet-700">
+          <input 
+                id={`turnOverEntity_${el}`} 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                name={`turnOverEntity_${el}`}
+                onChange={sectionChange}
+                required
+            />
+        </td>
+      </tr>
+    );
+  });
+
+  const productArray = table.map((el) => {
+    return (
+      <tr>
+        <td className="border-2  border-violet-700 w-[100px] text-center">
+          {el}
+        </td>
+        <td className="border-2  border-violet-700 focus:border-green-500">
+          <input  
+              id={`product_${el}` }
+              className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+              name={`product_${el}` }
+              onChange={sectionChange}
+              required
+
+          />
+        </td>
+        <td className="border-2  border-violet-700">
+          <input 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  id={`NICcode_${el}`}
+                  name={`NICcode_${el}`}
+                  onChange={sectionChange}
+                  required
+
+          />
+        </td>
+        <td className="border-2  border-violet-700">
+          <input 
+                id={`totalTurnover_${el}`} 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                name={`totalTurnover_${el}`}
+                onChange={sectionChange}
+                required
+            />
+        </td>
+      </tr>
+    );
+  });
+
+
+  console.log(formData)
+
 
   const handleSubmit = () => {};
   const addRowHandler = () => {
@@ -54,7 +135,7 @@ const SectionA = () => {
   };
   const removeRowHandler = () => {
     setTable((prev) => {
-      if (prev.length == 1) return prev;
+      if (prev.length === 1) return prev;
       const updatedTable = [...prev];
       updatedTable.pop();
       return updatedTable;
@@ -220,7 +301,7 @@ const SectionA = () => {
             />
           </div>
         </div>
-
+        {/* Products/services section  */}
         <h1 className="text-center mb-5 font-bold text-lg">
           Products/services:
         </h1>
@@ -228,6 +309,7 @@ const SectionA = () => {
         <h1 className="text-center mb-5 font-bold text-lg">
           Details of business activities (accounting for 90% of the turnover)
         </h1>
+        
         <div className="px-10 flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
@@ -246,9 +328,13 @@ const SectionA = () => {
               </tr>
             </thead>
             <tbody id="tb">{row}</tbody>
-            <div className="flex">
+           
+          </table>
+          
+        </div>
+        <div className="flex justify-end">
               <button
-                className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+                className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
                 onClick={addRowHandler}
                 type="button"
               >
@@ -262,8 +348,6 @@ const SectionA = () => {
                 Remove
               </button>
             </div>
-          </table>
-        </div>
 
         {/* table2 */}
         <h1 className="text-center mb-5 font-bold text-lg">
@@ -271,68 +355,265 @@ const SectionA = () => {
           entity’s Turnover):
         </h1>
         <div className="px-10 flex justify-between">
-          <table className="border-collapse  h-[100px] w-full">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
               <tr className="">
-                <th className="border-violet-700 border-2 w-[-30rem]">S.no.</th>
+                <th className="border-violet-700 border-2 ">S.no.</th>
                 <th className="border-violet-700 border-2">
-                  Products/services
+                  Products/services                
+                  </th>
+                <th className="border-violet-700 border-2">
+                  NIC Code
                 </th>
-                <th className="border-violet-700 border-2">NIC CODE</th>
                 <th className="border-violet-700 border-2">
                   {" "}
-                  % of Total Turnover Calculated
+                  % of Total Turnover Contributed
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr className="">
-                <td className="border-2  border-violet-700 w-[100px] text-center">
-                  1
-                </td>
-                <td className="border-2  border-violet-700  focus:border-green-500 authip">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]   focus:border-green-500 authip  " />
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " />
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " />
-                </td>
-              </tr>
-              <tr className="">
-                <td className="border-2  border-violet-700 w-[100px] text-center">
-                  2
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]   focus:border-green-500 authip  " />
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " />
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " />
-                </td>
-              </tr>
-              <tr className="">
-                <td className="border-2  border-violet-700 w-[100px] text-center">
-                  3
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]   focus:border-green-500 authip  " />
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " />
-                </td>
-                <td className="border-2  border-violet-700">
-                  <input className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " />
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="tb">{productArray}</tbody>
+           
           </table>
+          
+        </div>
+        <div className="flex justify-end">
+              <button
+                className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+                onClick={addRowHandler}
+                type="button"
+              >
+                Add
+              </button>
+              <button
+                className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+                onClick={removeRowHandler}
+                type="button"
+              >
+                Remove
+              </button>
+            </div>
+
+            {/* OPERATIONS */}
+        <h1 className="text-center mb-5 font-bold text-lg">Operations:</h1>
+        <h1 className="text-center mb-5 font-bold text-lg">
+              Number of locations where plants and/or operations/offices of the entity are situated:
+        </h1>
+        <div className="px-10 flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
+              <thead>
+                <tr className="">
+                  <th className="border-violet-700 border-2 ">Location</th>
+                  <th className="border-violet-700 border-2">
+                    Number of Plants          
+                    </th>
+                  <th className="border-violet-700 border-2">
+                  Number Of Offices
+                  </th>
+                  <th className="border-violet-700 border-2">
+                    {" "}
+                  Total
+                  </th>
+                </tr>
+              </thead>
+              <tr>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                    National
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="nationalPlants"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="nationalPlants"
+                        onChange={sectionChange}
+                        required
+
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            id="nationalOffice"
+                            name="nationalOffice"
+                            onChange={sectionChange}
+                            required
+
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                          id="nationalTotal"
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          name="nationalTotal"
+                          onChange={sectionChange}
+                          required
+                      />
+                  </td>
+              </tr>
+                <tr>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                    International
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="internationalPlants"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="internationalPlants"
+                        onChange={sectionChange}
+                        required
+
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            id="internationalOffice"
+                            name="internationalOffice"
+                            onChange={sectionChange}
+                            required
+
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                          id="internationalTotal"
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          name="internationalTotal"
+                          onChange={sectionChange}
+                          required
+                      />
+                  </td>
+              </tr>
+          </table>
+          
+        </div>
+        <h1 className="text-center mb-5 font-bold text-lg">
+        Markets served by the entity
+        </h1>
+        <div>
+        <h4 className="text-center mb-5 font-bold text-lg">Number of locations</h4>
         </div>
 
-        <h1 className="text-center mb-5 font-bold text-lg">Operations:</h1>
+        <div className="px-10 flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[50%]">
+              <thead>
+                <tr className="">
+                  <th className="border-violet-700 border-2 ">Locations</th>
+                  <th className="border-violet-700 border-2">
+                    Numbers        
+                    </th>
+                </tr>
+              </thead>
+
+              <tr>
+              <td className="border-2  border-violet-700 w-[100px] text-center">
+                    National (No.of.States)
+                  </td>
+              <td className="border-2  border-violet-700">
+                    <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            id="nationalNumbers"
+                            name="nationalNumbers"
+                            onChange={sectionChange}
+                            required
+
+                    />
+                  </td>   
+              </tr>
+              <tr>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                    International (No.of.Countries)
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="internationalNumbers"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="internationalNumbers"
+                        onChange={sectionChange}
+                        required
+                    />
+                  </td>
+              </tr>
+          </table> 
+          <label>What is the contribution of exports as a percentage of the total turnover of the entity? </label>
+          <input  
+                        id="contributionExports"
+                        className="pl-[0.5rem]  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip w-[20.5rem] " 
+                        name="contributionExports"
+                        onChange={sectionChange}
+                        required
+            />
+            <label>A brief on type of customers </label>
+                  <input  
+                        id="briefCustomers"
+                        className="pl-[0.5rem]  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip w-[20.5rem] " 
+                        name="briefCustomers"
+                        onChange={sectionChange}
+                        required
+                    />
+        </div>
+
+        {/* Employees */}
+      <h1 className="text-center mb-5 font-bold text-lg">Employees:</h1>
+      <h1 className="text-center mb-5 font-bold text-lg">
+        Participation/Inclusion/Representation of women:
+      </h1>
+     
+      <div className="px-10 flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[50%]">
+              <thead>
+                <tr className="">
+                  <th className="border-violet-700 border-2 "></th>
+                  <th className="border-violet-700 border-2">
+                    Total (A)       
+                    </th>
+                   
+                      Number and percentage of females
+                        <tr>
+                            <th className="border-violet-700 border-2"> No (B)</th>
+                            <th className="border-violet-700 border-2"> % ( B / A )</th>
+                     </tr>
+                </tr>
+              </thead>
+              
+              <tr>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                    International (No.of.Countries)
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="internationalNumbers"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="internationalNumbers"
+                        onChange={sectionChange}
+                        required
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                    International (No.of.Countries)
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="internationalNumbers"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="internationalNumbers"
+                        onChange={sectionChange}
+                        required
+                    />
+                  </td>
+                  
+              </tr>
+              
+              
+              
+              
+              
+              
+              
+              
+        </table>
+        </div>
+
+
       </form>
     </div>
   );
