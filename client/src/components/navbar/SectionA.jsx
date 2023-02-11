@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import "./sections.css"
 const SectionA = () => {
 
   // dynamic allocation of rows in table
@@ -288,7 +289,7 @@ const SectionA = () => {
     });
   };
   return (
-    <div>
+    <div className="p-10">
       <Helmet>
         <title>GENERAL DISCLOSURES - SectionA</title>
       </Helmet>
@@ -296,7 +297,7 @@ const SectionA = () => {
         Details of the listed entity:
       </h1>
       <form onSubmit={handleSubmit}>
-        <div className="p-5 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="flex justify-between flex-col md:flex-row">
             <label>
               {" "}
@@ -456,7 +457,7 @@ const SectionA = () => {
           Details of business activities (accounting for 90% of the turnover)
         </h1>
         
-        <div className="px-10 flex justify-between">
+        <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
               <tr className="">
@@ -500,7 +501,7 @@ const SectionA = () => {
           Products/Services sold by the entity (accounting for 90% of the
           entity’s Turnover):
         </h1>
-        <div className="px-10 flex justify-between">
+        <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
               <tr className="">
@@ -544,7 +545,7 @@ const SectionA = () => {
         <h1 className="text-center mb-5 font-bold text-lg">
               Number of locations where plants and/or operations/offices of the entity are situated:
         </h1>
-        <div className="px-10 flex justify-between">
+        <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
               <thead>
                 <tr className="">
@@ -639,8 +640,10 @@ const SectionA = () => {
         <h4 className="text-center mb-5 font-bold text-lg">Number of locations</h4>
         </div>
 
-        <div className="px-10 flex justify-between">
-          <table className="border-collapse h-[100px]  mb-5 w-[50%]">
+    
+  
+      
+        <table className="border-collapse h-[100px]  mb-5 w-full">
               <thead>
                 <tr className="">
                   <th className="border-violet-700 border-2 ">Locations</th>
@@ -680,30 +683,48 @@ const SectionA = () => {
                   </td>
               </tr>
           </table> 
-          <label>What is the contribution of exports as a percentage of the total turnover of the entity? </label>
-          <input  
-                        id="contributionExports"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip w-[20.5rem] " 
-                        name="contributionExports"
-                        onChange={sectionChange}
-                        required
-            />
-            <label>A brief on type of customers </label>
-                  <input  
-                        id="briefCustomers"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip w-[20.5rem] " 
-                        name="briefCustomers"
-                        onChange={sectionChange}
-                        required
+          <table className="border-collapse h-[100px]  mb-5 w-full">
+              <thead>
+                <tr className="">
+                  <th className="border-violet-700 border-2 w-max">
+                    What is the contribution of exports as a percentage of the total turnover of the entity?
+                  </th>
+                  <th className="border-violet-700 border-2">
+                    A brief on types of customers        
+                    </th>
+                </tr>
+              </thead>
+
+              <tr>
+              <td className="border-2  border-violet-700 text-center">
+              <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
+                            id="nationalNumbers"
+                            name="nationalNumbers"
+                            onChange={sectionChange}
+                            required
+
                     />
-        </div>
+                  </td>
+              <td className="border-2  border-violet-700">  
+                    <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
+                            id="nationalNumbers"
+                            name="nationalNumbers"
+                            onChange={sectionChange}
+                            required
+
+                    />
+                  </td>   
+              </tr>
+          </table> 
 
         {/* Employees */}
         <h1 className="text-center mb-5 font-bold text-lg">Employees:</h1>
         <h1 className="text-center mb-5 font-bold text-lg">
         Participation/Inclusion/Representation of women:
         </h1>
-        <div className="px-10 flex justify-between">
+        <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
               <thead>
                 <tr className="">
@@ -792,10 +813,11 @@ const SectionA = () => {
 
         <h1 className="text-center mb-5 font-bold text-lg"> Turnover rate for permanent employees and workers (Disclose trends for the past 3 years) </h1>
      
-        <h4 className="text-left mb-5 font-bold text-lg">FY___ (Turnover Rate in Current FY) </h4>
-     
-        <div className="px-10 flex justify-between">
-          <table className="border-collapse h-[100px]  mb-5 w-[20.9%]">
+        
+     <div className="flex justify-between w-full turnRate">
+        <div className="w-[50%]">
+        <h4 className="text-center mb-5 font-bold text-lg">FY___ (Turnover Rate in Current FY) </h4>
+          <table className="border-collapse h-[100px]">
               <thead>
                 <tr className="">
                   <th className="border-violet-700 border-2 "></th>
@@ -880,95 +902,96 @@ const SectionA = () => {
 
 
 
-    <h4 className="text-left mb-5 font-bold text-lg">FY___ (Turnover Rate in Previous FY) </h4>
-     
-     <div className="px-10 flex justify-between">
-       <table className="border-collapse h-[100px]  mb-5 w-[20.9%]">
-           <thead>
-             <tr className="">
-               <th className="border-violet-700 border-2 "></th>
-               <th className="border-violet-700 border-2">
-                 Male     
-                 </th>
-               <th className="border-violet-700 border-2">
-               Female 
-               </th>
-               <th className="border-violet-700 border-2">
-                 Total
-               </th>
-             </tr>
-           </thead>
-           <tr>
-               <td className="border-2  border-violet-700 w-[100px] text-center">
-               Permanent Employees
-               </td>
-               <td className="border-2  border-violet-700 focus:border-green-500">
-                 <input  
-                     id="previousMaleEmployee"
-                     className="pl-[0.5rem]  inline  mb-[1rem] authip " 
-                     name="previousMaleEmployee"
-                     onChange={sectionChange}
-                     required
+    <div className="w-[50%]">
+        <h4 className="text-center mb-5 font-bold text-lg">FY___ (Turnover Rate in Previous FY) </h4>
+          <table className="border-collapse h-[100px]  mb-5">
+              <thead>
+                <tr className="">
+                  <th className="border-violet-700 border-2 "></th>
+                  <th className="border-violet-700 border-2">
+                    Male     
+                    </th>
+                  <th className="border-violet-700 border-2">
+                  Female 
+                  </th>
+                  <th className="border-violet-700 border-2">
+                    Total
+                  </th>
+                </tr>
+              </thead>
+              <tr>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                  Permanent Employees
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="currentMaleEmployee"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="currentMaleEmployee"
+                        onChange={sectionChange}
+                        required
 
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
-                         id="previousFemaleEmployee"
-                         name="previousFemaleEmployee"
-                         onChange={sectionChange}
-                         required
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                       id="previousTotalEmployee"
-                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
-                       name="previousTotalEmployee"
-                       onChange={sectionChange}
-                       required
-                   />
-               </td>
-           </tr>                <tr>
-               <td className="border-2  border-violet-700 w-[100px] text-center">
-                 Permanent Workers
-               </td>
-               <td className="border-2  border-violet-700 focus:border-green-500">
-                 <input  
-                     id="previousMaleWorker"
-                     className="pl-[0.5rem]  inline  mb-[1rem] authip " 
-                     name="previousMaleWorker"
-                     onChange={sectionChange}
-                     required
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            id="currentFemaleEmployee"
+                            name="currentFemaleEmployee"
+                            onChange={sectionChange}
+                            required
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                          id="currentTotalEmployee"
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          name="currentTotalEmployee"
+                          onChange={sectionChange}
+                          required
+                      />
+                  </td>
+              </tr>                <tr>
+                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                    Permanent Workers
+                  </td>
+                  <td className="border-2  border-violet-700 focus:border-green-500">
+                    <input  
+                        id="currentMaleWorker"
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        name="currentMaleWorker"
+                        onChange={sectionChange}
+                        required
 
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
-                         id="previousFemaleWorker"
-                         name="previousFemaleWorker"
-                         onChange={sectionChange}
-                         required
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                       id="previousTotalWorker"
-                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
-                       name="previousTotalWorker"
-                       onChange={sectionChange}
-                       required
-                   />
-               </td>
-           </tr>
-       </table>
- </div>
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            id="currentFemaleWorker"
+                            name="currentFemaleWorker"
+                            onChange={sectionChange}
+                            required
+                    />
+                  </td>
+                  <td className="border-2  border-violet-700">
+                    <input 
+                          id="currentTotalWorker"
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          name="currentTotalWorker"
+                          onChange={sectionChange}
+                          required
+                      />
+                  </td>
+              </tr>
+          </table>
+    </div>
+
+    </div>
  <h4 className="text-left mb-5 font-bold text-lg">FY___ (Turnover Rate in the year prior to the Previous FY) </h4>
      
-     <div className="px-10 flex justify-between">
-       <table className="border-collapse h-[100px]  mb-5 w-[20.9%]">
+     <div className=" flex justify-between">
+       <table className="border-collapse h-[100px]  mb-5">
            <thead>
              <tr className="">
                <th className="border-violet-700 border-2 "></th>
@@ -1059,7 +1082,7 @@ const SectionA = () => {
         Names of holding / subsidiary / associate companies / joint ventures:
         </h1>
  
-        <div className="px-10 flex justify-between">
+        <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
             <tr className="">
@@ -1108,7 +1131,7 @@ const SectionA = () => {
 
 
             <div className="flex justify-between">
-            <label>Turn Over:</label>
+            <label>ii)Turn Over:</label>
             <input
               id="turnOver"
               type="text"

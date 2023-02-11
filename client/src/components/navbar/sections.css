@@ -1,0 +1,8 @@
+@media screen and (max-width:1445px){
+    .turnRate{
+        flex-direction: column;
+    }
+    .turnRate div,.turnRate table{
+        width: 100%;
+    }
+}
