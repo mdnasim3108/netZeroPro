@@ -1176,7 +1176,10 @@ const SectionA = () => {
                 Remove
               </button>
           </div>
-              <button type="submit">Submit and move to Section B</button>
+              <button type="submit">Submit and move to Section B
+              
+              
+              </button>
       </form>
     </div>
   );

@@ -9,9 +9,7 @@ export default function NavBar({ fixed }) {
 
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-  const handleClick = () =>{
-        navigate("/sectionA")
-  }
+ 
   return (
     <>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-pink-500 mb-3">
@@ -42,7 +40,7 @@ export default function NavBar({ fixed }) {
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={handleClick}>Section A</span>
+                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={()=>{navigate('/sectionA')}}>Section A</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -50,7 +48,7 @@ export default function NavBar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
               
                 >
-                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2" onClick={handleClick}>Section B</span>
+                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={()=>{navigate('/sectionB')}}>Section B</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -58,7 +56,7 @@ export default function NavBar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 
                 >
-                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2" onClick={handleClick}> Section C</span>
+                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={()=>{navigate('/sectionC')}}> Section C</span>
                 </a>
               </li>
             </ul>
