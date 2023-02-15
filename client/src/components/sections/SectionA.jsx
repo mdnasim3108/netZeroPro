@@ -96,7 +96,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700 focus:border-green-500">
           <input  
               id={`mainActivity_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
               name={`mainActivity_${el}`}
               onChange={sectionChange}
               required
@@ -105,7 +105,7 @@ const SectionA = () => {
         </td>
         <td className="border-2  border-violet-700">
           <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2  " 
                   id={`businessActivity_${el}`}
                   name={`businessActivity_${el}`}
                   onChange={sectionChange}
@@ -116,7 +116,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700">
           <input 
                 id={`turnOverEntity_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                 name={`turnOverEntity_${el}`}
                 onChange={sectionChange}
                 required
@@ -135,7 +135,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700 focus:border-green-500">
           <input  
               id={`product_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
               name={`product_${el}` }
               onChange={sectionChange}
               required
@@ -144,7 +144,7 @@ const SectionA = () => {
         </td>
         <td className="border-2  border-violet-700">
           <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                   id={`NICcode_${el}`}
                   name={`NICcode_${el}`}
                   onChange={sectionChange}
@@ -155,7 +155,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700">
           <input 
                 id={`totalTurnover_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                 name={`totalTurnover_${el}`}
                 onChange={sectionChange}
                 required
@@ -174,7 +174,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700 focus:border-green-500">
           <input  
               id={`nameOfHolder_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
               name={`nameOfHolder_${el}` }
               onChange={sectionChange}
               required
@@ -183,7 +183,7 @@ const SectionA = () => {
         </td>
         <td className="border-2  border-violet-700">
           <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                   id={`indicateType_${el}`}
                   name={`indicateType_${el}`}
                   onChange={sectionChange}
@@ -194,7 +194,7 @@ const SectionA = () => {
         </td>
         <td className="border-2  border-violet-700">
           <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2  " 
                   id={`sharesOfEntity_${el}`}
                   name={`sharesOfEntity_${el}`}
                   onChange={sectionChange}
@@ -204,7 +204,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700">
           <input 
                 id={`entityIndicated_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                 name={`entityIndicated_${el}`}
                 onChange={sectionChange}
                 required
@@ -223,7 +223,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700 focus:border-green-500">
           <input  
               id={`materialIssue_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
               name={`materialIssue_${el}` }
               onChange={sectionChange}
               required
@@ -232,7 +232,7 @@ const SectionA = () => {
         </td>
         <td className="border-2  border-violet-700">
           <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                   id={`identifyRisk_${el}`}
                   name={`identifyRisk_${el}`}
                   onChange={sectionChange}
@@ -243,7 +243,7 @@ const SectionA = () => {
         </td>
         <td className="border-2  border-violet-700">
           <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                   id={`rationaleRisk_${el}`}
                   name={`rationaleRisk_${el}`}
                   onChange={sectionChange}
@@ -253,7 +253,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700">
           <input 
                 id={`approachAdapt_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                 name={`approachAdapt_${el}`}
                 onChange={sectionChange}
                 required
@@ -262,7 +262,7 @@ const SectionA = () => {
         <td className="border-2  border-violet-700">
           <input 
                 id={`financialImplication_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                 name={`financialImplication_${el}`}
                 onChange={sectionChange}
                 required
@@ -273,10 +273,12 @@ const SectionA = () => {
   });
 
 
-  console.log(formData)
 
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    console.log(formData)
+
+  };
   const addRowHandler = () => {
     setTable((prev) => [...prev, prev[prev.length - 1] + 1]);
   };
@@ -569,7 +571,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="nationalPlants"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                         name="nationalPlants"
                         onChange={sectionChange}
                         required
@@ -578,7 +580,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                             id="nationalOffice"
                             name="nationalOffice"
                             onChange={sectionChange}
@@ -589,7 +591,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700">
                     <input 
                           id="nationalTotal"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                           name="nationalTotal"
                           onChange={sectionChange}
                           required
@@ -603,7 +605,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="internationalPlants"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                         name="internationalPlants"
                         onChange={sectionChange}
                         required
@@ -612,7 +614,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                             id="internationalOffice"
                             name="internationalOffice"
                             onChange={sectionChange}
@@ -623,7 +625,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700">
                     <input 
                           id="internationalTotal"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                           name="internationalTotal"
                           onChange={sectionChange}
                           required
@@ -659,7 +661,7 @@ const SectionA = () => {
                   </td>
               <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                             id="nationalNumbers"
                             name="nationalNumbers"
                             onChange={sectionChange}
@@ -675,7 +677,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="internationalNumbers"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                         name="internationalNumbers"
                         onChange={sectionChange}
                         required
@@ -747,7 +749,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="boardOfDirectorsMale"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                         name="boardOfDirectorsMale"
                         onChange={sectionChange}
                         required
@@ -755,7 +757,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                             id="boardOfDirectorsFemale"
                             name="boardOfDirectorsFemale"
                             onChange={sectionChange}
@@ -767,7 +769,7 @@ const SectionA = () => {
                     <input 
                           id="boardOfDirectorsPercentage"
 
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                           name="boardOfDirectorsPercentage"
                           onChange={sectionChange}
                           required
@@ -776,12 +778,12 @@ const SectionA = () => {
               </tr>
                 <tr>
                   <td className="border-2  border-violet-700 w-[100px] text-center">
-                    Key Management Personnel
+                    KeyManagement Personnel
                   </td>
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="keyManagementPersonnelMale"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                         name="keyManagementPersonnelMale"
                         onChange={sectionChange}
                         required
@@ -790,7 +792,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                             id="keyManagementPersonnelFemale"
                             name="keyManagementPersonnelFemale"
                             onChange={sectionChange}
@@ -801,7 +803,7 @@ const SectionA = () => {
                     <input 
                           id="keyManagementPersonnelPercentage"
 
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                           name="keyManagementPersonnelPercentage"
                           onChange={sectionChange}
                           required
@@ -839,7 +841,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="currentMaleEmployee"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                         name="currentMaleEmployee"
                         onChange={sectionChange}
                         required
@@ -848,7 +850,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                             id="currentFemaleEmployee"
                             name="currentFemaleEmployee"
                             onChange={sectionChange}
@@ -858,7 +860,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700">
                     <input 
                           id="currentTotalEmployee"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                           name="currentTotalEmployee"
                           onChange={sectionChange}
                           required
@@ -871,7 +873,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="currentMaleWorker"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                         name="currentMaleWorker"
                         onChange={sectionChange}
                         required
@@ -880,7 +882,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                             id="currentFemaleWorker"
                             name="currentFemaleWorker"
                             onChange={sectionChange}
@@ -890,7 +892,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700">
                     <input 
                           id="currentTotalWorker"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                           name="currentTotalWorker"
                           onChange={sectionChange}
                           required
@@ -935,7 +937,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
                             id="currentFemaleEmployee"
                             name="currentFemaleEmployee"
                             onChange={sectionChange}
@@ -945,7 +947,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700">
                     <input 
                           id="currentTotalEmployee"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                           name="currentTotalEmployee"
                           onChange={sectionChange}
                           required
@@ -958,7 +960,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700 focus:border-green-500">
                     <input  
                         id="currentMaleWorker"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                        className="pl-[0.5rem]  inline  mb-[1rem] authip w-full h-full relative top-2" 
                         name="currentMaleWorker"
                         onChange={sectionChange}
                         required
@@ -967,7 +969,7 @@ const SectionA = () => {
                   </td>
                   <td className="border-2  border-violet-700">
                     <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  w-full h-full relative top-2" 
                             id="currentFemaleWorker"
                             name="currentFemaleWorker"
                             onChange={sectionChange}
@@ -977,7 +979,7 @@ const SectionA = () => {
                   <td className="border-2  border-violet-700">
                     <input 
                           id="currentTotalWorker"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                           name="currentTotalWorker"
                           onChange={sectionChange}
                           required
@@ -1013,7 +1015,7 @@ const SectionA = () => {
                <td className="border-2  border-violet-700 focus:border-green-500">
                  <input  
                      id="priorPreviousMaleEmployee"
-                     className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                     className="pl-[0.5rem]  inline  mb-[1rem] authip  w-full h-full relative top-2" 
                      name="priorPreviousMaleEmployee"
                      onChange={sectionChange}
                      required
@@ -1022,7 +1024,7 @@ const SectionA = () => {
                </td>
                <td className="border-2  border-violet-700">
                  <input 
-                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  w-full h-full relative top-2" 
                          id="priorPreviousFemaleEmployee"
                          name="priorPreviousFemaleEmployee"
                          onChange={sectionChange}
@@ -1032,7 +1034,7 @@ const SectionA = () => {
                <td className="border-2  border-violet-700">
                  <input 
                        id="priorPreviousTotalEmployee"
-                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                        name="priorPreviousTotalEmployee"
                        onChange={sectionChange}
                        required
@@ -1045,7 +1047,7 @@ const SectionA = () => {
                <td className="border-2  border-violet-700 focus:border-green-500">
                  <input  
                      id="priorPreviousMaleWorker"
-                     className="pl-[0.5rem]  inline  mb-[1rem] authip " 
+                     className="pl-[0.5rem]  inline  mb-[1rem] authip w-full h-full relative top-2" 
                      name="priorPreviousMaleWorker"
                      onChange={sectionChange}
                      required
@@ -1054,7 +1056,7 @@ const SectionA = () => {
                </td>
                <td className="border-2  border-violet-700">
                  <input 
-                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  " 
+                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  w-full h-full relative top-2" 
                          id="priorPreviousFemaleWorker"
                          name="priorPreviousFemaleWorker"
                          onChange={sectionChange}
@@ -1064,7 +1066,7 @@ const SectionA = () => {
                <td className="border-2  border-violet-700">
                  <input 
                        id="priorPreviousTotalWorker"
-                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip " 
+                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
                        name="priorPreviousTotalWorker"
                        onChange={sectionChange}
                        required
@@ -1073,8 +1075,6 @@ const SectionA = () => {
                     </tr>
                 </table>
           </div>
-
-
 
 
           <h1 className="text-center mb-5 font-bold text-lg">Holding, Subsidiary and Associate Companies (including joint ventures):</h1>
@@ -1102,9 +1102,9 @@ const SectionA = () => {
                 </tr>
             </thead>
             <tbody id="tb">{nameOfHoldingsArray}</tbody>
-           
           </table> 
         </div>
+        
         <div className="flex justify-end">
               <button
                 className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
@@ -1126,8 +1126,8 @@ const SectionA = () => {
 
           <h1 className="text-center mb-5 font-bold text-lg">CSR Details:</h1>
             <label>i)Whether CSR is applicable as per section 135 of Companies Act, 2013</label>
-            <input id="csrYes" type="radio"  name="csrYes" /> Yes
-            <input id="csrNo" type="radio"  name="csrNo" /> No
+             <input type="radio" name="policy" id="policy1" /> Yes
+      <input type="radio" name="policy" id="policy1" /> No  
 
 
             <div className="flex justify-between">
