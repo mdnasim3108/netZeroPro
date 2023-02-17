@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import "./sections.css";
+import Table from "../tables/table";
 const SectionA = () => {
   // dynamic allocation of rows in table
 
@@ -77,10 +78,11 @@ const SectionA = () => {
     financialImplication_1: "",
   });
   const sectionChange = (e) => {
-    setFormData((previousState) => ({
-      ...previousState,
-      [e.target.id]: e.target.value,
-    }));
+    // setFormData((previousState) => ({
+    //   ...previousState,
+    //   [e.target.id]: e.target.value,
+    // }));
+    console.log(e.target.id)
   };
   const row = table.map((el) => {
     return (
@@ -89,33 +91,31 @@ const SectionA = () => {
           {el}
         </td>
         <td className="border-2  border-violet-700 focus:border-green-500">
-          <input  
-              id={`mainActivity_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-              name={`mainActivity_${el}`}
-              onChange={sectionChange}
-              required
-
+          <input
+            id={`mainActivity_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem] authip "
+            name={`mainActivity_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2  " 
-                  id={`businessActivity_${el}`}
-                  name={`businessActivity_${el}`}
-                  onChange={sectionChange}
-                  required
-
+          <input
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+            id={`businessActivity_${el}`}
+            name={`businessActivity_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                id={`turnOverEntity_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                name={`turnOverEntity_${el}`}
-                onChange={sectionChange}
-                required
-            />
+          <input
+            id={`turnOverEntity_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip "
+            name={`turnOverEntity_${el}`}
+            onChange={sectionChange}
+            required
+          />
         </td>
       </tr>
     );
@@ -128,33 +128,31 @@ const SectionA = () => {
           {el}
         </td>
         <td className="border-2  border-violet-700 focus:border-green-500">
-          <input  
-              id={`product_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-              name={`product_${el}` }
-              onChange={sectionChange}
-              required
-
+          <input
+            id={`product_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem] authip "
+            name={`product_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                  id={`NICcode_${el}`}
-                  name={`NICcode_${el}`}
-                  onChange={sectionChange}
-                  required
-
+          <input
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+            id={`NICcode_${el}`}
+            name={`NICcode_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                id={`totalTurnover_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                name={`totalTurnover_${el}`}
-                onChange={sectionChange}
-                required
-            />
+          <input
+            id={`totalTurnover_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip "
+            name={`totalTurnover_${el}`}
+            onChange={sectionChange}
+            required
+          />
         </td>
       </tr>
     );
@@ -167,42 +165,40 @@ const SectionA = () => {
           {el}
         </td>
         <td className="border-2  border-violet-700 focus:border-green-500">
-          <input  
-              id={`nameOfHolder_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-              name={`nameOfHolder_${el}` }
-              onChange={sectionChange}
-              required
-
+          <input
+            id={`nameOfHolder_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem] authip "
+            name={`nameOfHolder_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                  id={`indicateType_${el}`}
-                  name={`indicateType_${el}`}
-                  onChange={sectionChange}
-                  required
-
+          <input
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+            id={`indicateType_${el}`}
+            name={`indicateType_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2  " 
-                  id={`sharesOfEntity_${el}`}
-                  name={`sharesOfEntity_${el}`}
-                  onChange={sectionChange}
-                  required
-
-          /></td>
+          <input
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+            id={`sharesOfEntity_${el}`}
+            name={`sharesOfEntity_${el}`}
+            onChange={sectionChange}
+            required
+          />
+        </td>
         <td className="border-2  border-violet-700">
-          <input 
-                id={`entityIndicated_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                name={`entityIndicated_${el}`}
-                onChange={sectionChange}
-                required
-            />
+          <input
+            id={`entityIndicated_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip "
+            name={`entityIndicated_${el}`}
+            onChange={sectionChange}
+            required
+          />
         </td>
       </tr>
     );
@@ -215,63 +211,57 @@ const SectionA = () => {
           {el}
         </td>
         <td className="border-2  border-violet-700 focus:border-green-500">
-          <input  
-              id={`materialIssue_${el}` }
-              className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-              name={`materialIssue_${el}` }
-              onChange={sectionChange}
-              required
-
+          <input
+            id={`materialIssue_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem] authip "
+            name={`materialIssue_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                  id={`identifyRisk_${el}`}
-                  name={`identifyRisk_${el}`}
-                  onChange={sectionChange}
-                  required
-
+          <input
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+            id={`identifyRisk_${el}`}
+            name={`identifyRisk_${el}`}
+            onChange={sectionChange}
+            required
           />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                  className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                  id={`rationaleRisk_${el}`}
-                  name={`rationaleRisk_${el}`}
-                  onChange={sectionChange}
-                  required
-
-          /></td>
-        <td className="border-2  border-violet-700">
-          <input 
-                id={`approachAdapt_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                name={`approachAdapt_${el}`}
-                onChange={sectionChange}
-                required
-            />
+          <input
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+            id={`rationaleRisk_${el}`}
+            name={`rationaleRisk_${el}`}
+            onChange={sectionChange}
+            required
+          />
         </td>
         <td className="border-2  border-violet-700">
-          <input 
-                id={`financialImplication_${el}`} 
-                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                name={`financialImplication_${el}`}
-                onChange={sectionChange}
-                required
-            />
+          <input
+            id={`approachAdapt_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip "
+            name={`approachAdapt_${el}`}
+            onChange={sectionChange}
+            required
+          />
+        </td>
+        <td className="border-2  border-violet-700">
+          <input
+            id={`financialImplication_${el}`}
+            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip "
+            name={`financialImplication_${el}`}
+            onChange={sectionChange}
+            required
+          />
         </td>
       </tr>
     );
   });
 
+  console.log(formData);
 
-
-
-  const handleSubmit = () => {
-    console.log(formData)
-
-  };
+  const handleSubmit = () => {};
   const addRowHandler = () => {
     setTable((prev) => [...prev, prev[prev.length - 1] + 1]);
   };
@@ -452,7 +442,7 @@ const SectionA = () => {
           Details of business activities (accounting for 90% of the turnover)
         </h1>
 
-        <div className=" flex justify-between">
+        {/* <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
               <tr className="">
@@ -471,11 +461,20 @@ const SectionA = () => {
             </thead>
             <tbody id="tb">{row}</tbody>
           </table>
-        </div>
+        </div> */}
+        
+        <Table
+          headings={[
+            {name: "Description of main activity", type: "string" },
+            {name:"description of business activity",type:"string"},
+            {name:"% of Turnover of the Entity",type:"string"},
+          ]}
+          onchange={sectionChange}
+        />
 
         <div className="flex justify-end">
           <button
-            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5"
             onClick={addRowHandler}
             type="button"
           >
@@ -544,80 +543,8 @@ const SectionA = () => {
                 <th className="border-violet-700 border-2">Number of Plants</th>
                 <th className="border-violet-700 border-2">
                   Number Of Offices
-                  </th>
-                  <th className="border-violet-700 border-2">
-                    {" "}
-                  Total
-                  </th>
-                </tr>
-              </thead>
-              <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    National
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="nationalPlants"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                        name="nationalPlants"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                            id="nationalOffice"
-                            name="nationalOffice"
-                            onChange={sectionChange}
-                            required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="nationalTotal"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                          name="nationalTotal"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>
-                <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    International
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="internationalPlants"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                        name="internationalPlants"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                            id="internationalOffice"
-                            name="internationalOffice"
-                            onChange={sectionChange}
-                            required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="internationalTotal"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                          name="internationalTotal"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
+                </th>
+                <th className="border-violet-700 border-2"> Total</th>
               </tr>
             </thead>
             <tr>
@@ -703,433 +630,75 @@ const SectionA = () => {
             </tr>
           </thead>
 
-              <tr>
-              <td className="border-2  border-violet-700 w-[100px] text-center">
-                    National (No.of.States)
-                  </td>
-              <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                            id="nationalNumbers"
-                            name="nationalNumbers"
-                            onChange={sectionChange}
-                            required
+          <tr>
+            <td className="border-2  border-violet-700 w-[100px] text-center">
+              National (No.of.States)
+            </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
+                id="nationalNumbers"
+                name="nationalNumbers"
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="border-2  border-violet-700 w-[100px] text-center">
+              International (No.of.Countries)
+            </td>
+            <td className="border-2  border-violet-700 focus:border-green-500">
+              <input
+                id="internationalNumbers"
+                className="pl-[0.5rem]  inline  mb-[1rem] authip "
+                name="internationalNumbers"
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          </tr>
+        </table>
+        <table className="border-collapse h-[100px]  mb-5 w-full">
+          <thead>
+            <tr className="">
+              <th className="border-violet-700 border-2 w-max">
+                What is the contribution of exports as a percentage of the total
+                turnover of the entity?
+              </th>
+              <th className="border-violet-700 border-2">
+                A brief on types of customers
+              </th>
+            </tr>
+          </thead>
 
-                    />
-                  </td>   
-              </tr>
-              <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    International (No.of.Countries)
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="internationalNumbers"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                        name="internationalNumbers"
-                        onChange={sectionChange}
-                        required
-                    />
-                  </td>
-              </tr>
-          </table> 
-          <table className="border-collapse h-[100px]  mb-5 w-full">
-              <thead>
-                <tr className="">
-                  <th className="border-violet-700 border-2 w-max">
-                    What is the contribution of exports as a percentage of the total turnover of the entity?
-                  </th>
-                  <th className="border-violet-700 border-2">
-                    A brief on types of customers        
-                    </th>
-                </tr>
-              </thead>
-
-              <tr>
-              <td className="border-2  border-violet-700 text-center">
-              <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                            id="nationalNumbers"
-                            name="nationalNumbers"
-                            onChange={sectionChange}
-                            required
-
-                    />
-                  </td>
-              <td className="border-2  border-violet-700">  
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                            id="nationalNumbers"
-                            name="nationalNumbers"
-                            onChange={sectionChange}
-                            required
-
-                    />
-                  </td>   
-              </tr>
-          </table> 
+          <tr>
+            <td className="border-2  border-violet-700 text-center">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2"
+                id="nationalNumbers"
+                name="nationalNumbers"
+                onChange={sectionChange}
+                required
+              />
+            </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 "
+                id="nationalNumbers"
+                name="nationalNumbers"
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          </tr>
+        </table>
 
         {/* Employees */}
         <h1 className="text-center mb-5 font-bold text-lg">Employees:</h1>
         <h1 className="text-center mb-5 font-bold text-lg">
           Participation/Inclusion/Representation of women:
         </h1>
-        <div className=" flex justify-between">
-          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
-              <thead>
-                <tr className="">
-                  <th className="border-violet-700 border-2 "></th>
-                  <th className="border-violet-700 border-2">
-                    Number of Men (A)      
-                    </th>
-                  <th className="border-violet-700 border-2">
-                  Number Of Female (B)
-                  </th>
-                  <th className="border-violet-700 border-2">
-                    % ( B / A )
-                  </th>
-                </tr>
-              </thead>
-              <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    Board of Directors
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="boardOfDirectorsMale"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                        name="boardOfDirectorsMale"
-                        onChange={sectionChange}
-                        required
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                            id="boardOfDirectorsFemale"
-                            name="boardOfDirectorsFemale"
-                            onChange={sectionChange}
-                            required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="boardOfDirectorsPercentage"
-
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                          name="boardOfDirectorsPercentage"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>
-                <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    KeyManagement Personnel
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="keyManagementPersonnelMale"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                        name="keyManagementPersonnelMale"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                            id="keyManagementPersonnelFemale"
-                            name="keyManagementPersonnelFemale"
-                            onChange={sectionChange}
-                            required
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="keyManagementPersonnelPercentage"
-
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                          name="keyManagementPersonnelPercentage"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>
-          </table> 
-        </div>
-
-        <h1 className="text-center mb-5 font-bold text-lg"> Turnover rate for permanent employees and workers (Disclose trends for the past 3 years) </h1>
-     
-        
-     <div className="flex justify-between w-full turnRate">
-        <div className="w-[50%]">
-        <h4 className="text-center mb-5 font-bold text-lg">FY___ (Turnover Rate in Current FY) </h4>
-          <table className="border-collapse h-[100px]">
-              <thead>
-                <tr className="">
-                  <th className="border-violet-700 border-2 "></th>
-                  <th className="border-violet-700 border-2">
-                    Male     
-                    </th>
-                  <th className="border-violet-700 border-2">
-                  Female 
-                  </th>
-                  <th className="border-violet-700 border-2">
-                    Total
-                  </th>
-                </tr>
-              </thead>
-              <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                  Permanent Employees
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="currentMaleEmployee"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                        name="currentMaleEmployee"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                            id="currentFemaleEmployee"
-                            name="currentFemaleEmployee"
-                            onChange={sectionChange}
-                            required
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="currentTotalEmployee"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                          name="currentTotalEmployee"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>                <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    Permanent Workers
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="currentMaleWorker"
-                        className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                        name="currentMaleWorker"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                            id="currentFemaleWorker"
-                            name="currentFemaleWorker"
-                            onChange={sectionChange}
-                            required
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="currentTotalWorker"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                          name="currentTotalWorker"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>
-          </table>
-    </div>
-
-
-
-    <div className="w-[50%]">
-        <h4 className="text-center mb-5 font-bold text-lg">FY___ (Turnover Rate in Previous FY) </h4>
-          <table className="border-collapse h-[100px]  mb-5">
-              <thead>
-                <tr className="">
-                  <th className="border-violet-700 border-2 "></th>
-                  <th className="border-violet-700 border-2">
-                    Male     
-                    </th>
-                  <th className="border-violet-700 border-2">
-                  Female 
-                  </th>
-                  <th className="border-violet-700 border-2">
-                    Total
-                  </th>
-                </tr>
-              </thead>
-              <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                  Permanent Employees
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="currentMaleEmployee"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip " 
-                        name="currentMaleEmployee"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2 " 
-                            id="currentFemaleEmployee"
-                            name="currentFemaleEmployee"
-                            onChange={sectionChange}
-                            required
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="currentTotalEmployee"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                          name="currentTotalEmployee"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>                <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
-                    Permanent Workers
-                  </td>
-                  <td className="border-2  border-violet-700 focus:border-green-500">
-                    <input  
-                        id="currentMaleWorker"
-                        className="pl-[0.5rem]  inline  mb-[1rem] authip w-full h-full relative top-2" 
-                        name="currentMaleWorker"
-                        onChange={sectionChange}
-                        required
-
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  w-full h-full relative top-2" 
-                            id="currentFemaleWorker"
-                            name="currentFemaleWorker"
-                            onChange={sectionChange}
-                            required
-                    />
-                  </td>
-                  <td className="border-2  border-violet-700">
-                    <input 
-                          id="currentTotalWorker"
-                          className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                          name="currentTotalWorker"
-                          onChange={sectionChange}
-                          required
-                      />
-                  </td>
-              </tr>
-          </table>
-    </div>
-
-    </div>
- <h4 className="text-left mb-5 font-bold text-lg">FY___ (Turnover Rate in the year prior to the Previous FY) </h4>
-     
-     <div className=" flex justify-between">
-       <table className="border-collapse h-[100px]  mb-5">
-           <thead>
-             <tr className="">
-               <th className="border-violet-700 border-2 "></th>
-               <th className="border-violet-700 border-2">
-                 Male     
-                 </th>
-               <th className="border-violet-700 border-2">
-               Female 
-               </th>
-               <th className="border-violet-700 border-2">
-                 Total
-               </th>
-             </tr>
-           </thead>
-           <tr>
-               <td className="border-2  border-violet-700 w-[100px] text-center">
-               Permanent Employees
-               </td>
-               <td className="border-2  border-violet-700 focus:border-green-500">
-                 <input  
-                     id="priorPreviousMaleEmployee"
-                     className="pl-[0.5rem]  inline  mb-[1rem] authip  w-full h-full relative top-2" 
-                     name="priorPreviousMaleEmployee"
-                     onChange={sectionChange}
-                     required
-
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  w-full h-full relative top-2" 
-                         id="priorPreviousFemaleEmployee"
-                         name="priorPreviousFemaleEmployee"
-                         onChange={sectionChange}
-                         required
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                       id="priorPreviousTotalEmployee"
-                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                       name="priorPreviousTotalEmployee"
-                       onChange={sectionChange}
-                       required
-                   />
-               </td>
-           </tr>                <tr>
-               <td className="border-2  border-violet-700 w-[100px] text-center">
-                 Permanent Workers
-               </td>
-               <td className="border-2  border-violet-700 focus:border-green-500">
-                 <input  
-                     id="priorPreviousMaleWorker"
-                     className="pl-[0.5rem]  inline  mb-[1rem] authip w-full h-full relative top-2" 
-                     name="priorPreviousMaleWorker"
-                     onChange={sectionChange}
-                     required
-
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  w-full h-full relative top-2" 
-                         id="priorPreviousFemaleWorker"
-                         name="priorPreviousFemaleWorker"
-                         onChange={sectionChange}
-                         required
-                 />
-               </td>
-               <td className="border-2  border-violet-700">
-                 <input 
-                       id="priorPreviousTotalWorker"
-                       className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                       name="priorPreviousTotalWorker"
-                       onChange={sectionChange}
-                       required
-                   />
-                        </td>
-                    </tr>
-                </table>
-          </div>
-
-
-          <h1 className="text-center mb-5 font-bold text-lg">Holding, Subsidiary and Associate Companies (including joint ventures):</h1>
-        <h1 className="text-center mb-5 font-bold text-lg">
-        Names of holding / subsidiary / associate companies / joint ventures:
-        </h1>
- 
         <div className=" flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
             <thead>
@@ -1490,12 +1059,11 @@ const SectionA = () => {
               </tr>
             </thead>
             <tbody id="tb">{nameOfHoldingsArray}</tbody>
-          </table> 
+          </table>
         </div>
-        
         <div className="flex justify-end">
           <button
-            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5"
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
             onClick={addRowHandler}
             type="button"
           >
@@ -1556,10 +1124,12 @@ const SectionA = () => {
           </table>
         </div>
 
-          <h1 className="text-center mb-5 font-bold text-lg">CSR Details:</h1>
-            <label>i)Whether CSR is applicable as per section 135 of Companies Act, 2013</label>
-             <input type="radio" name="policy" id="policy1" /> Yes
-      <input type="radio" name="policy" id="policy1" /> No  
+        <h1 className="text-center mb-5 font-bold text-lg">
+          Transparency and Disclosures Compliances:
+        </h1>
+        <h1 className="text-center mb-5 font-bold text-lg">
+          Overview of the entity’s material responsible business conduct issues:
+        </h1>
 
         <div className="px-10 flex justify-between">
           <table className="border-collapse h-[100px]  mb-5 w-[100%]">
@@ -1603,13 +1173,12 @@ const SectionA = () => {
             Remove
           </button>
         </div>
-       
       </form>
       <div className="flex justify-center">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Submit and move to section B
         </button>
-        </div>
+      </div>
     </div>
   );
 };
