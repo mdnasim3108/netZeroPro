@@ -472,22 +472,7 @@ const SectionA = () => {
           onchange={sectionChange}
         />
 
-        <div className="flex justify-end">
-          <button
-            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5"
-            onClick={addRowHandler}
-            type="button"
-          >
-            Add
-          </button>
-          <button
-            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
-            onClick={removeRowHandler}
-            type="button"
-          >
-            Remove
-          </button>
-        </div>
+       
 
         {/* table2 */}
         <h1 className="text-center mb-5 font-bold text-lg">
