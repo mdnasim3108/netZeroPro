@@ -551,7 +551,7 @@ const SectionA = () => {
               <td className="border-2  border-violet-700 w-[100px] text-center">
                 National
               </td>
-              <td className="border-2  border-violet-700 focus:border-green-500">
+              <td className="border-2  border-violet-700 focus:border-green-500 w-full h-full">
                 <input
                   id="nationalPlants"
                   className="pl-[0.5rem]  inline  mb-[1rem] authip "

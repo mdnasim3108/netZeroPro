@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 import SectionA from "./components/sections/SectionA";
 import "./App.css";
 import SectionB from "./components/sections/SectionB";
-import SectionC from "./components/sections/SectionC";
+import SectionC from "./components/sections/Part1";
 
 
 const  App =  ()=>{
@@ -18,7 +18,7 @@ const  App =  ()=>{
       </Helmet>
         <Router>
             <Routes>
-                <Route path="/" element={<Auth/>} />
+                {/* <Route path="/" element={<Auth/>} /> */}
                 {/* <Route path="/payment" element={<PricingTable/>} /> */}
                 <Route path="/home" element={<NavBar/>} /> 
                 <Route path="/sectionA" element={<SectionA/>} /> 
