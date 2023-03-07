@@ -78,11 +78,11 @@ const SectionA = () => {
     financialImplication_1: "",
   });
   const sectionChange = (e) => {
-    // setFormData((previousState) => ({
-    //   ...previousState,
-    //   [e.target.id]: e.target.value,
-    // }));
-    console.log(e.target.id)
+    setFormData((previousState) => ({
+      ...previousState,
+      [e.target.id]: e.target.value,
+    }));
+    
   };
   const row = table.map((el) => {
     return (

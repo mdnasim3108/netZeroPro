@@ -8,6 +8,7 @@ import SectionA from "./components/sections/SectionA";
 import "./App.css";
 import SectionB from "./components/sections/SectionB";
 import SectionC from "./components/sections/Part1";
+import Part2 from "./components/sections/Part2";
 
 
 const  App =  ()=>{
@@ -24,6 +25,7 @@ const  App =  ()=>{
                 <Route path="/sectionA" element={<SectionA/>} /> 
                 <Route path="/sectionB" element={<SectionB/>} /> 
                 <Route path="/sectionC" element={<SectionC/>} /> 
+                <Route path="/part2" element={<Part2/>} /> 
             </Routes>
         </Router>
       </div>

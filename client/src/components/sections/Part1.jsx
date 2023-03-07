@@ -771,7 +771,6 @@ const SectionC = () => {
                     <input  
                         id="directorCurrentFY"
                         className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip w-full h-full relative top-2" 
-                        
                         onChange={sectionChange}
                         required
                     />
