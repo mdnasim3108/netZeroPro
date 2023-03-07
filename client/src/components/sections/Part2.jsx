@@ -718,7 +718,7 @@ const Part2 = () => {
    </form>
    <div className="flex justify-center">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Submit and move to next principle
+          Submit and move to  principle-3
         </button>
       </div>
     </div>
