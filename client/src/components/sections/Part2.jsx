@@ -235,7 +235,7 @@ const Part2 = () => {
                 </tr>
               </thead>
               <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                  <td className="border-2  border-violet-700  text-center">
                   R&D
                   </td>
                   <td className="border-2  border-violet-700 focus:border-green-500">
@@ -264,7 +264,7 @@ const Part2 = () => {
                   </td>
               </tr>
               <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center">
+                  <td className="border-2  border-violet-700   text-center">
                         Capex                  
                 </td>
                   <td className="border-2  border-violet-700 focus:border-green-500">
@@ -294,6 +294,8 @@ const Part2 = () => {
               </tr>
               </table>
     </div>
+
+
     <div className="flex justify-between">
             <label> Does the entity have procedures in place for sustainable sourcing?</label>
               Yes

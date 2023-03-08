@@ -633,7 +633,7 @@ const SectionC = () => {
                 </tr>
               </thead>
               <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center ">
+                  <td className="border-2  border-violet-700 text-center ">
                     Number of Complaints Received  in relation to issues of conflict of intrest of directors
                   </td>
                   <td className="border-2  border-violet-700 focus:border-green-500">
@@ -656,7 +656,7 @@ const SectionC = () => {
                   </td>
               </tr>
               <tr>
-                  <td className="border-2  border-violet-700 w-[100px] text-center w-100%">
+                  <td className="border-2  border-violet-700  text-center w-100%">
                   Number of Complaints Received in relation to issue of conflict  of intrest in KMP
                   </td>
                   <td className="border-2  border-violet-700 focus:border-green-500">
@@ -681,27 +681,7 @@ const SectionC = () => {
           </table>
         </div>
 
-        <div className="flex justify-between">
-            <label>Provide details of any corrective action taken or underway on issues related to fines / penalties / action taken by regulators/ law enforcement agencies/ judicial institutions, on cases of corruption and conflicts of interest :</label>
-            <input
-              id="detailsProvided"
-              type="text"
-              className="  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip  "
-              onChange={sectionChange}
-              required
-            />
-          </div>
-          <div className="flex justify-between">
-            <label>Does the entity have an anti-corruption or anti-bribery policy?</label>
-            <input
-              id="antibriberyPolicy"
-              type="text"
-              placeholder='If yes, provide details in brief and if available, provide a web-link to the policy'
-              className="  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip  "
-              onChange={sectionChange}
-              required
-            />
-          </div>
+    
 
 
           <h1 className="text-center mb-5 font-bold text-lg">
@@ -880,7 +860,27 @@ const SectionC = () => {
               required
             />
           </div>
-
+          <div className="flex justify-between">
+            <label>Provide details of any corrective action taken or underway on issues related to fines / penalties / action taken by regulators/ law enforcement agencies/ judicial institutions, on cases of corruption and conflicts of interest :</label>
+            <input
+              id="detailsProvided"
+              type="text"
+              className="  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip  "
+              onChange={sectionChange}
+              required
+            />
+          </div>
+          <div className="flex justify-between">
+            <label>Does the entity have an anti-corruption or anti-bribery policy?</label>
+            <input
+              id="antibriberyPolicy"
+              type="text"
+              placeholder='If yes, provide details in brief and if available, provide a web-link to the policy'
+              className="  inline  mb-[1rem]  border-2  border-violet-700 focus:border-green-500 authip  "
+              onChange={sectionChange}
+              required
+            />
+          </div>
       </form>
       <div className="flex justify-center">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
