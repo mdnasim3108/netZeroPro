@@ -14,6 +14,12 @@ const Part8 = () => {
       marginalizedGroup:"",
       totalProcurement:"",
 
+      previousCapex:"",
+      currentCapex:"",
+      previousRD:"",
+      currentRD:"",
+
+
 
     })
 
@@ -145,6 +151,175 @@ const Part8 = () => {
             <input
                 id={`amountPaidToPAF_${el}`}
                 className="pl-[0.5rem]  inline  mb-[1rem] authip relative top-2 "
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          
+          </tr>
+        );
+      });
+
+
+      const actionTaken = table.map((el) => {
+        return (
+          <tr>
+            <td className="border-2  border-violet-700  text-center">
+              <input
+                  id={`negativeSocialImpact_${el}`}
+                  className="pl-[0.5rem]  inline  mb-[1rem] authip relative top-2 "
+                  onChange={sectionChange}
+                  required
+                />
+            </td>
+           <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`correctiveActionTaken_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+
+          </tr>
+        );
+      });
+
+      const csrProject = table.map((el) => {
+        return (
+          <tr>
+          <td className="border-2  border-violet-700  text-center">
+              {el}
+            </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`state_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+           <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`aspirationalDetails_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`amountSpent_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          </tr>
+        );
+      });
+
+      const benefitsDerived = table.map((el) => {
+        return (
+          <tr>
+          <td className="border-2  border-violet-700  text-center">
+              {el}
+            </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`intellectualProperty_${el}`}
+                onChange={sectionChange}
+                required
+              />
+              </td>
+              <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`ownedOrAcquired_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+           <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`benefitShared_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`calculateBenefitShare_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          </tr>
+        );
+      });
+
+      const correctiveActionTaken = table.map((el) => {
+        return (
+          <tr>
+          
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`nameOfAuthority_${el}`}
+                onChange={sectionChange}
+                required
+              />
+              </td>
+              <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`briefOfCase_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+           <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`correctiveActionTaken_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+          
+          </tr>
+        );
+      });
+
+      const beneficiaryCSR = table.map((el) => {
+        return (
+          <tr>
+          <td className="border-2  border-violet-700">
+              {el}
+              </td>
+            <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`csrProject_${el}`}
+                onChange={sectionChange}
+                required
+              />
+              </td>
+              <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`personBenefitted_${el}`}
+                onChange={sectionChange}
+                required
+              />
+            </td>
+           <td className="border-2  border-violet-700">
+              <input
+                className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip relative top-2 "
+                id={`percentageOfBeneficiaries_${el}`}
                 onChange={sectionChange}
                 required
               />
@@ -293,6 +468,165 @@ const Part8 = () => {
     </div>
 
 
+    <h1 className="text-center mb-5 font-bold text-lg">Provide details of actions taken to mitigate any negative social impacts identified in the Social Impact Assessments (Reference: Question D130 of Essential Indicators above):</h1>
+      <div className=" flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
+            <thead>
+              <tr className="">
+                <th className="border-violet-700 border-2 ">Details of  negative Social Impacts </th>
+                <th className="border-violet-700 border-2">Corrective Action Taken</th>
+              </tr>
+            </thead>
+            <tbody id="tb">{actionTaken}</tbody>
+          </table>
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+            onClick={addRowHandler}
+            type="button"
+          >
+            Add
+          </button>
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+            onClick={removeRowHandler}
+            type="button"
+          >
+            Remove
+          </button>
+
+      </div> 
+
+
+      <h1 className="text-center mb-5 font-bold text-lg">Provide the following information on CSR projects undertaken by your entity in designated aspirational districts as identified by government bodies:</h1>
+      <div className=" flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
+            <thead>
+              <tr className="">
+              <th className="border-violet-700 border-2">S.NO</th>
+              <th className="border-violet-700 border-2">State</th>
+                <th className="border-violet-700 border-2 ">Aspirational Details</th>
+                <th className="border-violet-700 border-2">Amount Spent (IN INR)</th>
+              </tr>
+            </thead>
+            <tbody id="tb">{csrProject}</tbody>
+          </table>
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+            onClick={addRowHandler}
+            type="button"
+          >
+            Add
+          </button>
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+            onClick={removeRowHandler}
+            type="button"
+          >
+            Remove
+          </button>
+
+      </div> 
+
+
+
+      <h1 className="text-center mb-5 font-bold text-lg">Details of the benefits derived and shared from the intellectual properties owned or acquired by your entity (in the current financial year), based on traditional knowledge:</h1>
+      <div className=" flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
+            <thead>
+              <tr className="">
+              <th className="border-violet-700 border-2">S.NO</th>
+              <th className="border-violet-700 border-2">Intellectual Property Based On Traditional Knowledge</th>
+                <th className="border-violet-700 border-2 ">Owned / Acquired (Yes / No)</th>
+                <th className="border-violet-700 border-2">Benefits Shared (Yes / No)</th>
+                <th className="border-violet-700 border-2">Basis of Calculating benefit share</th>
+              </tr>
+            </thead>
+            <tbody id="tb">{benefitsDerived}</tbody>
+          </table>
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+            onClick={addRowHandler}
+            type="button"
+          >
+            Add
+          </button>
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+            onClick={removeRowHandler}
+            type="button"
+          >
+            Remove
+          </button>
+
+      </div> 
+
+
+      <h1 className="text-center mb-5 font-bold text-lg">Details of corrective actions taken or underway, based on any adverse order in intellectual property related disputes wherein usage of traditional knowledge is involved</h1>
+      <div className=" flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
+            <thead>
+              <tr className="">
+                <th className="border-violet-700 border-2 ">Name Of Authority </th>
+                <th className="border-violet-700 border-2">Brief Of Case</th>
+                <th className="border-violet-700 border-2">Corrective Action Taken </th>
+              </tr>
+            </thead>
+            <tbody id="tb">{correctiveActionTaken}</tbody>
+          </table>
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+            onClick={addRowHandler}
+            type="button"
+          >
+            Add
+          </button>
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+            onClick={removeRowHandler}
+            type="button"
+          >
+            Remove
+          </button>
+      </div> 
+      <h1 className="text-center mb-5 font-bold text-lg">Details of beneficiaries of CSR Projects:</h1>
+      <div className=" flex justify-between">
+          <table className="border-collapse h-[100px]  mb-5 w-[100%]">
+            <thead>
+              <tr className="">
+              <th className="border-violet-700 border-2 ">S.NO </th>
+                <th className="border-violet-700 border-2 ">CSR Project</th>
+                <th className="border-violet-700 border-2">Number of Persons benefitted from CSR</th>
+                <th className="border-violet-700 border-2">% of beneficiaries from vulnerable and marginalized groups </th>
+              </tr>
+            </thead>
+            <tbody id="tb">{beneficiaryCSR}</tbody>
+          </table>
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5 pr-5 "
+            onClick={addRowHandler}
+            type="button"
+          >
+            Add
+          </button>
+          <button
+            className="bg-gray-500 border-2 px-5 py-2 rounded mt-5"
+            onClick={removeRowHandler}
+            type="button"
+          >
+            Remove
+          </button>
+
+      </div> 
 
 
 
@@ -306,7 +640,6 @@ const Part8 = () => {
                 required
                 />
     </div>
-
     <div className="flex justify-between">
             <label>
             Do you have a preferential procurement policy where you give preference to purchase from suppliers comprising marginalized /vulnerable groups? </label>
