@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { Helmet } from 'react-helmet'
+import { useNavigate } from 'react-router'
 const SectionC = () => {
 
     const [formDataSectionC, setFormDataSectionC] = useState({
@@ -74,10 +75,11 @@ const SectionC = () => {
 
 
 
-
+const navigate = useNavigate();
     
     const handleSubmit = () =>{
       console.log("Scetion C Form submitted");
+      navigate('sectionC/principle2')
     }
     const sectionChange = (e) => {
       setFormDataSectionC((previousState) => ({
@@ -681,9 +683,6 @@ const SectionC = () => {
           </table>
         </div>
 
-    
-
-
           <h1 className="text-center mb-5 font-bold text-lg">
           Awareness programmes conducted for value chain partners on any of the Principles during the financial year:        </h1>
 
@@ -881,12 +880,13 @@ const SectionC = () => {
               required
             />
           </div>
-      </form>
-      <div className="flex justify-center">
+          <div className="flex justify-center">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Submit and move to  principle 1
+          Submit and move to  principle 2
         </button>
       </div>
+      </form>
+    
     </div>
   )
 }

@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+
 import { Helmet } from "react-helmet";
 import "./sections.css";
 import Table from "../tables/table";
@@ -77,6 +79,8 @@ const SectionA = () => {
     approachAdapt_1: "",
     financialImplication_1: "",
   });
+
+  const navigate = useNavigate();
   const sectionChange = (e) => {
     setFormData((previousState) => ({
       ...previousState,
@@ -84,42 +88,6 @@ const SectionA = () => {
     }));
     
   };
-  const row = table.map((el) => {
-    return (
-      <tr>
-        <td className="border-2  border-violet-700 w-[100px] text-center">
-          {el}
-        </td>
-        <td className="border-2  border-violet-700 focus:border-green-500">
-          <input
-            id={`mainActivity_${el}`}
-            className="pl-[0.5rem]  inline  mb-[1rem] authip "
-            name={`mainActivity_${el}`}
-            onChange={sectionChange}
-            required
-          />
-        </td>
-        <td className="border-2  border-violet-700">
-          <input
-            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip  "
-            id={`businessActivity_${el}`}
-            name={`businessActivity_${el}`}
-            onChange={sectionChange}
-            required
-          />
-        </td>
-        <td className="border-2  border-violet-700">
-          <input
-            id={`turnOverEntity_${el}`}
-            className="pl-[0.5rem]  inline  mb-[1rem]  focus:border-green-500 authip "
-            name={`turnOverEntity_${el}`}
-            onChange={sectionChange}
-            required
-          />
-        </td>
-      </tr>
-    );
-  });
 
   const productArray = table.map((el) => {
     return (
@@ -261,7 +229,10 @@ const SectionA = () => {
 
   console.log(formData);
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+      console.log("Form Submitted");
+      navigate("/sectionB");
+  };
   const addRowHandler = () => {
     setTable((prev) => [...prev, prev[prev.length - 1] + 1]);
   };
@@ -274,6 +245,7 @@ const SectionA = () => {
     });
   };
   return (
+
     <div className="p-10">
       <Helmet>
         <title>GENERAL DISCLOSURES - SectionA</title>
@@ -1158,12 +1130,13 @@ const SectionA = () => {
             Remove
           </button>
         </div>
-      </form>
-      <div className="flex justify-center">
+        <div className="flex justify-center">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Submit and move to section B
         </button>
       </div>
+      </form>
+      
     </div>
   );
 };
