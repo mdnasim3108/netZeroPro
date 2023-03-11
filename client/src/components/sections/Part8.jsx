@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 import { Helmet } from 'react-helmet'
-
+import { useNavigate } from 'react-router';
 
 const Part8 = () => {
 
     const [table, setTable] = useState([1,2]);
-
+    const navigate = useNavigate()
     const [formDataSectionC, setFormDataSectionC] = useState({
    
       describeMechanisms:"",
@@ -36,6 +36,7 @@ const Part8 = () => {
       };
       const handleSubmit = () =>{
         console.log("Scetion C Form submitted");
+        navigate("sectionC/principle9")
       }
       const sectionChange = (e) => {
         setFormDataSectionC((previousState) => ({
@@ -700,13 +701,14 @@ const Part8 = () => {
               required
             />
           </div>
-    </form>
-
-    <div className="flex justify-center">
+          <div className="flex justify-center">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Submit and move to  principle-9
+          Submit and move to next principle
         </button>
       </div>
+    </form>
+
+    
     </div>
   )
 }

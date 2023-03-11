@@ -64,7 +64,7 @@ const Login = () => {
 
         toastifySuccess()                                                                                           
         setTimeout(() => {
-          // navigate("/payment")
+          
           navigate("/home")
         }, 3000);
         setCookie("user", email, { path: "/",expires:tomorrow });
@@ -86,7 +86,7 @@ const Login = () => {
       console.log(result.user.photoURL);
       setValues(result.user.email);
       localStorage.setItem("email", result.user.email);
-      navigate("/payment");
+      navigate("/home");
     }).catch (()=>{
         toastifyFailure();
     })

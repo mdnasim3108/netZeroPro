@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import { Helmet } from 'react-helmet'
+import { useNavigate } from 'react-router';
 
 const Part4 = () => {
     const [table, setTable] = useState([1,2]);
-
+    const navigate = useNavigate();
     const [formDataSectionC, setFormDataSectionC] = useState({
 
         processDescription:"",
@@ -26,6 +27,7 @@ const Part4 = () => {
       };
     const handleSubmit = () =>{
         console.log("Scetion C Form submitted");
+        navigate("sectionC/principle6");
       }
       const sectionChange = (e) => {
         setFormDataSectionC((previousState) => ({
@@ -166,13 +168,14 @@ const Part4 = () => {
                 required
                 />
     </div>
-
-      </form>
-      <div className="flex justify-center">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Submit and move to  principle-5
+    <div className="flex justify-center">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Submit and move to next principle 
         </button>
-      </div>
+        </div>
+      </form>
+    
+    
     </div>
   )
 }

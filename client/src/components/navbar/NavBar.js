@@ -56,7 +56,7 @@ export default function NavBar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 
                 >
-                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={()=>{navigate('/sectionC')}}> Section C</span>
+                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2" style={{cursor:"pointer"}} onClick={()=>{navigate('/sectionC/principle1')}}> Section C</span>
                 </a>
               </li>
             </ul>
