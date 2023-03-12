@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 
 import { Helmet } from "react-helmet";
 import "./sections.css";
-import Table from "../tables/table";
+import Table from "../tables/dynamicTable";
 const SectionA = () => {
   // dynamic allocation of rows in table
 
