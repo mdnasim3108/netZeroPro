@@ -1,5 +1,5 @@
 import Auth from "./components/authentication/auth";
-// import PricingTable from "./components/Pricing/PricingTable";
+import PricingTable from "./components/Pricing/PricingTable";
 import { BrowserRouter as Router ,Routes,Route } from "react-router-dom";
 // import Home from "./components/home/Home";
 import NavBar from "./components/navbar/NavBar";
@@ -25,7 +25,7 @@ const  App =  ()=>{
         <Router>
             <Routes>
                 <Route path="/" element={<Auth/>} />
-                {/* <Route path="/payment" element={<PricingTable/>} /> */}
+                 <Route path="/payment" element={<PricingTable/>} />
                 <Route path="/home" element={<NavBar/>} /> 
                 <Route path="/sectionA" element={<SectionA/>} /> 
                 <Route path="/sectionB" element={<SectionB/>} /> 
